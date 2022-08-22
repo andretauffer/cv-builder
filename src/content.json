@@ -1,0 +1,41 @@
+{
+  "sections": [
+    {
+      "title": {
+        "text": "André Girão Tauffer",
+        "subtitle": "Full Stack Developer for beautiful apps",
+        "type": "main"
+      },
+      "direction": "column nowrap",
+      "content-box": {
+        "direction": "row nowrap",
+        "content-boxes": [
+          {
+            "direction": "column nowrap",
+            "description": [
+              "Full Stack Developer with a strong suit in front-end development. User-centered designs, and user tested software, built with unit testing to high coverage.",
+              "In a team I'm always available to share the challenges and figure out solutions together.",
+              "I always try to keep the code clean and reusable."
+            ]
+          },
+          {
+            "direction": "column nowrap",
+            "image": {
+              "url": "/src/assets/cv-photo.jpeg"
+            },
+            "links": [
+              {
+                "href": "https://github.com/andretauffer",
+                "title": "github"
+              },
+              {
+                "href": "https://www.linkedin.com/in/andr%C3%A9-tauffer-2b01039a/",
+                "title": "linkedIn"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
