@@ -6,6 +6,8 @@ import Section from "./components/Section";
 
 // import content from "./content.json";
 import content from "./content2.json";
+import { ContentContainer } from "./components/StyledComponents";
+import Technologies from "./components/Technologies";
 
 const ViewContainer = styled.div`
   background-color: grey;
@@ -26,18 +28,6 @@ const Image = styled.div`
 
 `;
 
-const Logo = styled.div`
-  background-image: ${props => `url(${props.url})`};
-  background-repeat: no-repeat;
-  object-fit: cover;
-  background-size: contain;
-  background-position: center;
-  width: 80px;
-  height: 80px;
-  margin: 10px;
-  min-width: 40px;
-
-`;
 
 const LinkTitle = styled.p`
   all: unset;
@@ -54,16 +44,6 @@ const LinksContainer = styled.div`
   margin: 20px;
 `;
 
-const ContentContainer = styled.div`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  ${props => props.direction && `
-    flex-flow: ${props.direction}
-  `}
-
-`;
-
 const DescriptionContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
@@ -75,21 +55,7 @@ const Description = styled.p`
   margin: 10px 20px;
 `;
 
-const TechTitle = styled.p`
-  all: unset;
-  color: black;
-  font-size: 16px;
-`;
 
-const TechContainer = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between ;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 20px;
-  background-color: white;
-`;
 
 const contentBox = ({ content, type }) => {
 
@@ -107,14 +73,7 @@ const contentBox = ({ content, type }) => {
     "content-box": (content) => contentBox({ content }),
     "content-boxes": (boxes) => boxes.map(content => contentBox({ content })),
     image: ({ url }) => <Image url={url} />,
-    technologies: (technologies) => <TechContainer direction="row wrap">{technologies
-      .map(({ title, url }) => <ContentContainer direction="column nowrap" style={{ alignItems: "center" }}>
-        <Logo url={url}></Logo>
-        <TechTitle>
-          {title}
-        </TechTitle>
-      </ContentContainer>)}
-    </TechContainer>,
+    technologies: (technologies) => <Technologies {...{ technologies }} />,
     default: () => <Description>Please specify a content box for type <strong>{type}</strong></Description>
   };
 
@@ -145,14 +104,47 @@ const sectionParser = ({ section, type }) => {
   return sectionTypes[type] ? sectionTypes[type]() : <Description>Please specify a section for the type <strong>{type}</strong></Description>
 }
 
+const LightRay = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(20%, -50%) rotate(20deg);
+  height: 120vh;
+  width: 0px;
+  /* background: linear-gradient(90deg, rgba(245,245,245,0.2) 0%, rgba(245,245,245,1) 20%, rgba(245,245,245,1) 80%, rgba(245,245,245,0.9) 100%); */
+  background: rgba(245,245,245,0.6);
+  box-shadow: 0px 0px 22px 5px white;
+  mix-blend-mode: soft-light;
+
+  animation: shine 10s ease-in-out infinite;
+
+  @keyframes shine {
+    0%{
+      box-shadow: 0px 0px 10px 5px white;
+
+    }
+    50%{
+      box-shadow: 0px 0px 22px 1px white;
+      width: 0px;
+
+    }
+    100%{
+
+      box-shadow: 0px 0px 10px 5px white;
+    }
+  }
+`;
+
 function App() {
 
-  return (
+  return (<>
+    {/* <LightRay></LightRay> */}
     <ViewContainer>
       <Page>
         {Object.keys(content).map(section => sectionParser({ section: content[section], type: section }))}
       </Page>
     </ViewContainer>
+  </>
   )
 }
 
