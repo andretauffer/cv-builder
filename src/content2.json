@@ -121,5 +121,64 @@
         "url": "/src/assets/mocha.svg"
       }
     ]
+  },
+  "experiences": {
+    "title": "Work experiences",
+    "assignments": [
+      {
+        "jobTitle": "DevOps Engineer",
+        "company": {
+          "logo": "",
+          "name": "IoT Communications AB",
+          "url": "https://iotcomms.io/"
+        },
+        "period": {
+          "from": "01 June 2020",
+          "to": "current"
+        },
+        "jobDescription": "Perform as a Full Stack Javascript engineer to develop and maintain the provisioning systems for the company's services. More specifically develop and maintain a RESTful API and a developer portal that consumes the APIs as well. The role includes but is not limited to the full spectrum of tools used for developing those services, from data structuring in the database, to prototyping and building a responsive UI.",
+        "keywords": [
+          "ReactJS",
+          "RESTful API",
+          "FullStack"
+        ]
+      },
+      {
+        "jobTitle": "Full Stack Developer",
+        "company": {
+          "logo": "",
+          "name": "Björn Borg",
+          "url": ""
+        },
+        "period": {
+          "from": "01 february 2020",
+          "to": "04 april 2020"
+        },
+        "jobDescription": "Was brought in to start a new e-commerce portal with an in-house team. The months worked were the initial structuring of this process, picking frameworks and talking to the current e-commerce maintainers, while also learning how to maintain and improve on the existing portal.",
+        "keywords": [
+          "consultant",
+          "FullStack",
+          "e-commerce"
+        ]
+      },
+      {
+        "jobTitle": "Full Stack Developer",
+        "company": {
+          "logo": "",
+          "name": "</salt>",
+          "url": ""
+        },
+        "period": {
+          "from": "01 april 2019",
+          "to": "01 june 2021"
+        },
+        "jobDescription": "Employed my skills as a Full Stack Developer both to build an internal portal to be used by the students, and as a consultant for their customers.",
+        "keywords": [
+          "consultant",
+          "FullStack",
+          "ReactJS"
+        ]
+      }
+    ]
   }
 }

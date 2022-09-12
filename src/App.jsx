@@ -8,6 +8,7 @@ import Section from "./components/Section";
 import content from "./content2.json";
 import { ContentContainer } from "./components/StyledComponents";
 import Technologies from "./components/Technologies";
+import Experiences from "./components/Experiences";
 
 const ViewContainer = styled.div`
   background-color: grey;
@@ -74,6 +75,7 @@ const contentBox = ({ content, type }) => {
     "content-boxes": (boxes) => boxes.map(content => contentBox({ content })),
     image: ({ url }) => <Image url={url} />,
     technologies: (technologies) => <Technologies {...{ technologies }} />,
+    experiences: (experiences) => <Experiences {...{ experiences }} />,
     default: () => <Description>Please specify a content box for type <strong>{type}</strong></Description>
   };
 
@@ -81,9 +83,9 @@ const contentBox = ({ content, type }) => {
 };
 
 const sectionParser = ({ section, type }) => {
-  const { title, subtitle, description, image, links, technologies } = section;
+  const { title, subtitle, description, image, links, technologies, assignments } = section;
   const sectionTypes = {
-    intro: () => <Section>
+    intro: () => <Section key={"intro" + title}>
       <ContentContainer>
         <ContentContainer direction="column nowrap">
 
@@ -95,9 +97,13 @@ const sectionParser = ({ section, type }) => {
         {contentBox({ content: image, type: "image" })}
       </ContentContainer>
     </Section>,
-    technologies: () => <Section backgroundColor={"#f5f2ed"}>
+    technologies: () => <Section backgroundColor={"#f5f2ed"} key={type + title}>
       {contentBox({ content: title, type: "technology-title" })}
       {contentBox({ content: technologies, type: "technologies" })}
+    </Section>,
+    experiences: () => <Section key={type + title}>
+      {contentBox({ content: title, type: "technology-title" })}
+      {contentBox({ content: assignments, type: "experiences" })}
     </Section>
   };
 
@@ -139,7 +145,7 @@ function App() {
 
   return (<>
     {/* <LightRay></LightRay> */}
-    <ViewContainer>
+    <ViewContainer className="view-container">
       <Page>
         {Object.keys(content).map(section => sectionParser({ section: content[section], type: section }))}
       </Page>

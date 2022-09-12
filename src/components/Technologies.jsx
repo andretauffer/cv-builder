@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import Tooltip from "./Tooltip";
@@ -48,6 +47,7 @@ const Loupe = styled.div`
   width: 40px;
   height: 40px;
   position: absolute;
+  z-index: 1;
   top: -20px;
   left: 0;
   border-radius: 40px ;
@@ -55,10 +55,14 @@ const Loupe = styled.div`
   -webkit-box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
   
-  transition: 1s ease all;
+  transition: 1s ease all, background-color 0.2s ease;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
+  :active {
+    background-color: #c8e8c8;
+  }
   
   ${props => props.open && `
     width: 300px;
@@ -86,7 +90,8 @@ const StyledInput = styled.input`
 const TechsContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around ;
+  justify-content: space-around;
+  align-items: center;
   /* margin: 20px; */
   padding: 20px;
   border-radius: 20px;
@@ -94,6 +99,9 @@ const TechsContainer = styled.div`
   height: 240px;
   overflow: auto;
 `;
+
+const filterTechnologies = ({ technologies, filter }) => technologies
+  .filter(({ title }) => title.toLowerCase().includes(filter.toLowerCase()))
 
 export default ({ technologies }) => {
   const [openFilter, setOpenFilter] = useState(false);
@@ -118,7 +126,7 @@ export default ({ technologies }) => {
     </Loupe>
     <TechsContainer>
 
-      {technologies
+      {filterTechnologies({ technologies, filter })
         .map(({ title, url }) => <TechContainer key={title} direction="column nowrap" style={{ alignItems: "center" }}>
           <Tooltip content={title} >
             <Logo url={url}></Logo>
