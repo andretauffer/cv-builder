@@ -7,6 +7,7 @@ const Section = styled.section`
   display: flex;
   flex-flow: column nowrap;
   background-color: #f5f2ed;
+  background-color: var(--section-background);
 `;
 
 export default ({ children }) => {

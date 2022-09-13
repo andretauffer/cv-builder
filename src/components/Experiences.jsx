@@ -21,11 +21,8 @@ const ExperienceContainerBorder = styled.div`
   border-radius: 25px;
   ${props => props.selected ? `
     animation: AnimationName 5s linear infinite;
-    background: radial-gradient(circle, #41d5af, #f5f2ed, #f5f2ed, #f5f2ed, #f5f2ed, #f5f2ed);
+    background: radial-gradient(circle, var(--border-animation-color), var(--section-background), var(--section-background), var(--section-background), var(--section-background), var(--section-background));
     background-size: 200% 200%;
-    // background: #41d5af;
-    // background-size: 50% 50%;
-    // z-index: 2;
 
     `: `
     background-color: transparent;

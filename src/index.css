@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&family=Roboto&family=Squada+One&display=swap');
+
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -13,6 +16,30 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --mellow-apricot: hsla(31, 90%, 69%, 1);
+  --atomic-tangerine: hsla(23, 90%, 68%, 1);
+  --coral: hsla(15, 87%, 66%, 1);
+  --bittersweet: hsla(9, 85%, 65%, 1);
+  --orange-red-crayola: hsla(3, 86%, 64%, 1);
+
+  --celadon: hsla(133, 61%, 77%, 1);
+  --independence: hsla(258, 10%, 38%, 1);
+  --light-sky-blue: hsla(199, 87%, 68%, 1);
+  --melon: hsla(10, 81%, 84%, 1);
+  --thistle: hsla(273, 17%, 74%, 1);
+  --lavender-blush: hsla(0, 68%, 96%, 0.5);
+  --portland-orange: hsla(13, 90%, 58%, 1);
+  --noto-font-family: 'Noto Sans', sans-serif;
+
+
+
+  --section-background: var(--lavender-blush);
+  --title-color: var(--portland-orange);
+  --border-animation-color: var(--light-sky-blue);
+  --header-font-family: var(--noto-font-family);
+
+
 }
 
 a {

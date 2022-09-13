@@ -26,23 +26,48 @@
     "technologies": [
       {
         "title": "JavaScript",
-        "url": "/src/assets/Javascript_badge.svg"
+        "url": "/src/assets/Javascript_badge.svg",
+        "keywords": [
+          "languages",
+          "web",
+          "frontend"
+        ]
       },
       {
         "title": "CSS",
-        "url": "/src/assets/CSS3_logo_and_wordmark.svg"
+        "url": "/src/assets/CSS3_logo_and_wordmark.svg",
+        "keywords": [
+          "languages",
+          "web",
+          "frontend"
+        ]
       },
       {
         "title": "HTML",
-        "url": "/src/assets/HTML5_logo_and_wordmark.svg"
+        "url": "/src/assets/HTML5_logo_and_wordmark.svg",
+        "keywords": [
+          "languages",
+          "web",
+          "frontend"
+        ]
       },
       {
         "title": "TypeScript",
-        "url": "/src/assets/Typescript_logo_2020.svg.png"
+        "url": "/src/assets/Typescript_logo_2020.svg.png",
+        "keywords": [
+          "languages",
+          "web",
+          "frontend"
+        ]
       },
       {
         "title": "NodeJS",
-        "url": "/src/assets/nodejs-new-pantone-black.svg"
+        "url": "/src/assets/nodejs-new-pantone-black.svg",
+        "keywords": [
+          "languages",
+          "server",
+          "backend"
+        ]
       },
       {
         "title": "React",

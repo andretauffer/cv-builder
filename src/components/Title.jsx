@@ -2,14 +2,19 @@ import styled from "styled-components";
 
 const Title = styled.p`
   all: unset;
-  color: red;
-  
+  color: var(--title-color);
+  font-family: var(--header-font-family);
+  font-size: 20px;
+  font-weight: 500;
+
 `;
 
 const Main = styled(Title)`
   padding: 20px 0;
   text-indent: 20px;
   font-size: 32px;
+  font-weight: 800;
+
 `;
 
 const Subtitle = styled(Title)`
