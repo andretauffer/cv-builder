@@ -1,12 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { useState } from "react";
 import styled from "styled-components";
-import Tooltip from "./Tooltip";
+import { Context } from "../Context";
 
 const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dev"];
 
 const BlockContainer = styled.div`
-  padding: 40px 0px;
+  padding: 0px 0px 20px;
   margin: 0 20px;
   
 
@@ -21,7 +21,7 @@ const ExperienceContainerBorder = styled.div`
   border-radius: 25px;
   ${props => props.selected ? `
     animation: AnimationName 5s linear infinite;
-    background: radial-gradient(circle, var(--border-animation-color), var(--section-background), var(--section-background), var(--section-background), var(--section-background), var(--section-background));
+    background: radial-gradient(circle, var(--border-animation-color), transparent, transparent, transparent, transparent, transparent);
     background-size: 200% 200%;
 
     `: `
@@ -51,6 +51,7 @@ const ExperienceContent = styled.div`
   padding: 20px;
   z-index: 1;
   position: relative;
+
 `;
 
 const JobTitle = styled.p`
@@ -116,16 +117,15 @@ const parseDescription = ({ description }) => description
   .filter(e => !!e)
   .map(string => !string.endsWith(".") ? string + ". " : string);
 
-export default ({ experiences }) => {
+export default ({ experiences, path }) => {
 
-
-  const [selected, setSelected] = useState();
+  const { selected, dispatch } = useContext(Context);
 
   useEffect(() => {
     const containers = document.querySelectorAll("section");
     const unset = () => {
-      console.log("gets invoked", containers)
-      setSelected(undefined)
+
+      dispatch({ type: "SET_SELECTED", selected: undefined });
     };
 
     containers.forEach(section => section.addEventListener("onclick", unset));
@@ -133,20 +133,22 @@ export default ({ experiences }) => {
     return () => containers.forEach(section => section.removeEventListener("onclick", unset));
   }, [])
 
-  return <BlockContainer onClick={() => setSelected(undefined)}>
+  return <BlockContainer onClick={() => dispatch({ type: "SET_SELECTED", selected: undefined })}>
 
 
-    {experiences.map(({ jobTitle, company, period, jobDescription, keywords }, index) =>
+    {experiences.map(({ title, institution, period, description, keywords }, index) =>
       <ExperienceContainer
-        key={jobTitle + index}
+        key={title + index}
         onClick={(e) => {
           e.stopPropagation();
-          setSelected(index)
-        }} onBlur={() => setSelected()}>
-        <ExperienceContainerBorder {...{ selected: selected === index }} />
-        <ExperienceContent>
+          dispatch({ type: "SET_SELECTED", selected: path + index });
+          dispatch({ type: "SET_KEYWORDS", keywords });
+        }}
+        onBlur={() => dispatch({ type: "SET_SELECTED", selected: undefined })}>
+        <ExperienceContainerBorder {...{ selected: selected === path + index }} />
+        <ExperienceContent {...{ selected: selected === path + index }}>
 
-          <JobTitle>{jobTitle} at {company.name}</JobTitle>
+          <JobTitle>{title} at {institution.name}</JobTitle>
           <PeriodContainer>
             <DateParagraph>{parseDate({ date: period.from })}</DateParagraph>
             <DateParagraph>
@@ -155,7 +157,7 @@ export default ({ experiences }) => {
             <DateParagraph>{parseDate({ date: period.to })}</DateParagraph>
           </PeriodContainer>
           <JobDescription>
-            {parseDescription({ description: jobDescription })
+            {parseDescription({ description: description })
               .map((paragraph, index) =>
                 <JobDescriptionParagraph key={paragraph[0] + paragraph[paragraph.length - 1] + index}>
                   {paragraph}
@@ -172,7 +174,8 @@ export default ({ experiences }) => {
           </KeyWordsContainer>
         </ExperienceContent>
       </ExperienceContainer>
-    )}
+    )
+    }
 
-  </BlockContainer>
+  </BlockContainer >
 };

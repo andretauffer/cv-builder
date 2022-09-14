@@ -1,4 +1,22 @@
 {
+  "keywords": [
+    "ReactJS",
+    "RESTful API",
+    "FullStack",
+    "languages",
+    "web",
+    "frontend",
+    "server",
+    "backend",
+    "consultant",
+    "FullStack",
+    {
+      "$ref": "#/technologies/technologies/0/title"
+    },
+    {
+      "$ref": "#/technologies/technologies/1/title"
+    }
+  ],
   "intro": {
     "title": "André Girão Tauffer",
     "subtitle": "Full Stack Developer for beautiful apps",
@@ -28,50 +46,109 @@
         "title": "JavaScript",
         "url": "/src/assets/Javascript_badge.svg",
         "keywords": [
-          "languages",
-          "web",
-          "frontend"
+          {
+            "$ref": "#/keywords/4"
+          },
+          {
+            "$ref": "#/keywords/5"
+          },
+          {
+            "$ref": "#/keywords/6"
+          },
+          {
+            "$ref": "#/technologies/technologies/0/title"
+          }
         ]
       },
       {
         "title": "CSS",
         "url": "/src/assets/CSS3_logo_and_wordmark.svg",
         "keywords": [
-          "languages",
-          "web",
-          "frontend"
+          {
+            "$ref": "#/keywords/4"
+          },
+          {
+            "$ref": "#/keywords/5"
+          },
+          {
+            "$ref": "#/keywords/6"
+          },
+          {
+            "$ref": "#/technologies/technologies/1/title"
+          }
         ]
       },
       {
         "title": "HTML",
         "url": "/src/assets/HTML5_logo_and_wordmark.svg",
         "keywords": [
-          "languages",
-          "web",
-          "frontend"
+          {
+            "$ref": "#/keywords/4"
+          },
+          {
+            "$ref": "#/keywords/5"
+          },
+          {
+            "$ref": "#/keywords/6"
+          },
+          {
+            "$ref": "#/technologies/technologies/2/title"
+          }
         ]
       },
       {
         "title": "TypeScript",
         "url": "/src/assets/Typescript_logo_2020.svg.png",
         "keywords": [
-          "languages",
-          "web",
-          "frontend"
+          {
+            "$ref": "#/keywords/4"
+          },
+          {
+            "$ref": "#/keywords/5"
+          },
+          {
+            "$ref": "#/keywords/6"
+          },
+          {
+            "$ref": "#/technologies/technologies/3/title"
+          }
         ]
       },
       {
         "title": "NodeJS",
         "url": "/src/assets/nodejs-new-pantone-black.svg",
         "keywords": [
-          "languages",
-          "server",
-          "backend"
+          {
+            "$ref": "#/keywords/4"
+          },
+          {
+            "$ref": "#/keywords/7"
+          },
+          {
+            "$ref": "#/keywords/8"
+          },
+          {
+            "$ref": "#/technologies/technologies/4/title"
+          }
         ]
       },
       {
-        "title": "React",
-        "url": "/src/assets/React-icon.svg"
+        "title": "ReactJS",
+        "url": "/src/assets/React-icon.svg",
+        "keywords": [
+          {
+            "$ref": "#/keywords/4"
+          },
+          {
+            "$ref": "#/keywords/5"
+          },
+          {
+            "$ref": "#/keywords/6"
+          },
+          {
+            "$ref": "#/technologies/technologies/5/title"
+          }
+        ]
       },
       {
         "title": "Redux",
@@ -151,8 +228,8 @@
     "title": "Work experiences",
     "assignments": [
       {
-        "jobTitle": "DevOps Engineer",
-        "company": {
+        "title": "DevOps Engineer",
+        "institution": {
           "logo": "",
           "name": "IoT Communications AB",
           "url": "https://iotcomms.io/"
@@ -161,16 +238,19 @@
           "from": "01 June 2020",
           "to": "current"
         },
-        "jobDescription": "Perform as a Full Stack Javascript engineer to develop and maintain the provisioning systems for the company's services. More specifically develop and maintain a RESTful API and a developer portal that consumes the APIs as well. The role includes but is not limited to the full spectrum of tools used for developing those services, from data structuring in the database, to prototyping and building a responsive UI.",
+        "description": "Perform as a Full Stack Javascript engineer to develop and maintain the provisioning systems for the company's services. More specifically develop and maintain a RESTful API and a developer portal that consumes the APIs as well. The role includes but is not limited to the full spectrum of tools used for developing those services, from data structuring in the database, to prototyping and building a responsive UI.",
         "keywords": [
           "ReactJS",
+          {
+            "$ref": "#/keywords/0"
+          },
           "RESTful API",
           "FullStack"
         ]
       },
       {
-        "jobTitle": "Full Stack Developer",
-        "company": {
+        "title": "Full Stack Developer",
+        "institution": {
           "logo": "",
           "name": "Björn Borg",
           "url": ""
@@ -179,7 +259,7 @@
           "from": "01 february 2020",
           "to": "04 april 2020"
         },
-        "jobDescription": "Was brought in to start a new e-commerce portal with an in-house team. The months worked were the initial structuring of this process, picking frameworks and talking to the current e-commerce maintainers, while also learning how to maintain and improve on the existing portal.",
+        "description": "Was brought in to start a new e-commerce portal with an in-house team. The months worked were the initial structuring of this process, picking frameworks and talking to the current e-commerce maintainers, while also learning how to maintain and improve on the existing portal.",
         "keywords": [
           "consultant",
           "FullStack",
@@ -187,8 +267,8 @@
         ]
       },
       {
-        "jobTitle": "Full Stack Developer",
-        "company": {
+        "title": "Full Stack Developer",
+        "institution": {
           "logo": "",
           "name": "</salt>",
           "url": ""
@@ -197,11 +277,40 @@
           "from": "01 april 2019",
           "to": "01 june 2021"
         },
-        "jobDescription": "Employed my skills as a Full Stack Developer both to build an internal portal to be used by the students, and as a consultant for their customers.",
+        "description": "Employed my skills as a Full Stack Developer both to build an internal portal to be used by the students, and as a consultant for their customers.",
         "keywords": [
           "consultant",
           "FullStack",
           "ReactJS"
+        ]
+      }
+    ]
+  },
+  "education": {
+    "title": "Relevant Education",
+    "courses": [
+      {
+        "title": "Full Stack Developer",
+        "institution": {
+          "logo": "",
+          "name": "School of Applied Technology",
+          "url": "https://www.salt.dev/sv-SE"
+        },
+        "period": {
+          "from": "01 April 2019",
+          "to": "31 July 2019"
+        },
+        "description": "Perform as a Full Stack Javascript engineer to develop and maintain the provisioning systems for the company's services. More specifically develop and maintain a RESTful API and a developer portal that consumes the APIs as well. The role includes but is not limited to the full spectrum of tools used for developing those services, from data structuring in the database, to prototyping and building a responsive UI.",
+        "keywords": [
+          {
+            "$ref": "#/keywords/0"
+          },
+          {
+            "$ref": "#/keywords/1"
+          },
+          {
+            "$ref": "#/keywords/2"
+          }
         ]
       }
     ]

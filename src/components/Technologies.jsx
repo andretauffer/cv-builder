@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styled from "styled-components";
 import Tooltip from "./Tooltip";
+
+import { Context } from "../Context"
 
 
 
@@ -35,6 +37,8 @@ const Logo = styled.div`
   height: 80px;
   margin: 10px;
   min-width: 40px;
+  /* width: 5px;
+  min-width: 20px; */
 
 `;
 
@@ -92,20 +96,35 @@ const TechsContainer = styled.div`
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
-  /* margin: 20px; */
   padding: 20px;
   border-radius: 20px;
   background-color: white;
   height: 240px;
   overflow: auto;
+  position: sticky;
 `;
 
-const filterTechnologies = ({ technologies, filter }) => technologies
-  .filter(({ title }) => title.toLowerCase().includes(filter.toLowerCase()))
+const filterTechnologies = ({ technologies, filter, keywords }) => {
+
+  if (keywords.length) {
+    return technologies.filter(technology => {
+      if (keywords.includes(technology.title)) return true;
+
+      return (technology.keywords) && !!technology.keywords.find(kw => keywords.includes(kw));
+    })
+  }
+
+  return technologies
+    .filter(({ title }) => title.toLowerCase().includes(filter.toLowerCase()))
+}
 
 export default ({ technologies }) => {
   const [openFilter, setOpenFilter] = useState(false);
   const [filter, setFilter] = useState("");
+
+  const { keywords, page } = useContext(Context);
+
+  console.log("the page", page)
 
   return <BlockContainer>
     <Loupe onClick={() => {
@@ -126,7 +145,7 @@ export default ({ technologies }) => {
     </Loupe>
     <TechsContainer>
 
-      {filterTechnologies({ technologies, filter })
+      {filterTechnologies({ technologies, filter, keywords })
         .map(({ title, url }) => <TechContainer key={title} direction="column nowrap" style={{ alignItems: "center" }}>
           <Tooltip content={title} >
             <Logo url={url}></Logo>

@@ -1,16 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&family=Roboto&family=Squada+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Noto+Sans:wght@400;500;600;700;800&family=Roboto&family=Squada+One&display=swap');
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -28,76 +25,22 @@
   --light-sky-blue: hsla(199, 87%, 68%, 1);
   --melon: hsla(10, 81%, 84%, 1);
   --thistle: hsla(273, 17%, 74%, 1);
-  --lavender-blush: hsla(0, 68%, 96%, 0.5);
+  --lavender-blush: hsla(0, 68%, 96%, 1);
   --portland-orange: hsla(13, 90%, 58%, 1);
+  --links-color: #466dd6;
   --noto-font-family: 'Noto Sans', sans-serif;
-
+  --alfa-font-family: 'Alfa Slab One', cursive;
 
 
   --section-background: var(--lavender-blush);
-  --title-color: var(--portland-orange);
+  --title-color: var(--light-sky-blue);
   --border-animation-color: var(--light-sky-blue);
-  --header-font-family: var(--noto-font-family);
+  /* --header-font-family: var(--noto-font-family); */
+  --header-font-family: var(--alfa-font-family);
 
 
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  /* background: linear-gradient(180deg, rgba(138, 162, 198, 0.8) 20%, rgba(86, 210, 255, 0.8) 100%); */
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
 }

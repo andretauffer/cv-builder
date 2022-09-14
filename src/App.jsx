@@ -9,9 +9,16 @@ import content from "./content2.json";
 import { ContentContainer } from "./components/StyledComponents";
 import Technologies from "./components/Technologies";
 import Experiences from "./components/Experiences";
+import { Resolver } from "@stoplight/json-ref-resolver";
+
+import { initialState, Context, reducer } from "./Context"
+
+import { useEffect, useState, useReducer, useRef } from "react";
+
+const resolver = new Resolver();
 
 const ViewContainer = styled.div`
-  background-color: grey;
+  background-color: var(--melon);
   width: 100vw;
   padding: 40px 0;
 
@@ -37,28 +44,40 @@ const LinkTitle = styled.p`
   color: black;
 `;
 
-const Link = styled.a``;
+const Link = styled.a`
+  color: var(--links-color);
+  font-weight: bold;
+  text-decoration: none;
+`;
 
 const LinksContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
   margin: 20px;
+  background-color: var(--celadon);
+  padding: 20px;
+  border-radius: 20px;
 `;
 
 const DescriptionContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
+  background-color: var(--border-animation-color);
+  color: white;
+  font-weight: bold;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 20px;
 `;
 
 const Description = styled.p`
   all: unset;
-  color: black;
   margin: 10px 20px;
 `;
 
 
 
-const contentBox = ({ content, type }) => {
+const contentBox = ({ content, type, path }) => {
 
   const picker = {
     description: (description) => <DescriptionContainer>{description.map(paragraph => <Description>{paragraph}</Description>)}</DescriptionContainer>,
@@ -75,7 +94,8 @@ const contentBox = ({ content, type }) => {
     "content-boxes": (boxes) => boxes.map(content => contentBox({ content })),
     image: ({ url }) => <Image url={url} />,
     technologies: (technologies) => <Technologies {...{ technologies }} />,
-    experiences: (experiences) => <Experiences {...{ experiences }} />,
+    experiences: (experiences) => <Experiences {...{ experiences, path }} />,
+    education: (education) => <Experiences {...{ education, path }} />,
     default: () => <Description>Please specify a content box for type <strong>{type}</strong></Description>
   };
 
@@ -83,7 +103,7 @@ const contentBox = ({ content, type }) => {
 };
 
 const sectionParser = ({ section, type }) => {
-  const { title, subtitle, description, image, links, technologies, assignments } = section;
+  const { title, subtitle, description, image, links, technologies, assignments, courses } = section;
   const sectionTypes = {
     intro: () => <Section key={"intro" + title}>
       <ContentContainer>
@@ -92,64 +112,58 @@ const sectionParser = ({ section, type }) => {
           {contentBox({ content: title, type: "title" })}
           {contentBox({ content: subtitle, type: "subtitle" })}
           {contentBox({ content: description, type: "description" })}
+        </ContentContainer>
+        <ContentContainer direction="column nowrap">
+          {contentBox({ content: image, type: "image" })}
           {contentBox({ content: links, type: "links" })}
         </ContentContainer>
-        {contentBox({ content: image, type: "image" })}
       </ContentContainer>
     </Section>,
-    technologies: () => <Section backgroundColor={"#f5f2ed"} key={type + title}>
+    technologies: () => <Section key={type + title} backgroundColor={"#f5f2ed"}>
       {contentBox({ content: title, type: "technology-title" })}
       {contentBox({ content: technologies, type: "technologies" })}
     </Section>,
     experiences: () => <Section key={type + title}>
       {contentBox({ content: title, type: "technology-title" })}
-      {contentBox({ content: assignments, type: "experiences" })}
+      {contentBox({ content: assignments, type: "experiences", path: type + "/" })}
+    </Section>,
+    education: () => <Section key={type + title}>
+      {contentBox({ content: title, type: "technology-title" })}
+      {contentBox({ content: courses, type: "experiences", path: type + "/" })}
     </Section>
   };
 
-  return sectionTypes[type] ? sectionTypes[type]() : <Description>Please specify a section for the type <strong>{type}</strong></Description>
+  return sectionTypes[type] ? sectionTypes[type]() : <></>;
 }
-
-const LightRay = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(20%, -50%) rotate(20deg);
-  height: 120vh;
-  width: 0px;
-  /* background: linear-gradient(90deg, rgba(245,245,245,0.2) 0%, rgba(245,245,245,1) 20%, rgba(245,245,245,1) 80%, rgba(245,245,245,0.9) 100%); */
-  background: rgba(245,245,245,0.6);
-  box-shadow: 0px 0px 22px 5px white;
-  mix-blend-mode: soft-light;
-
-  animation: shine 10s ease-in-out infinite;
-
-  @keyframes shine {
-    0%{
-      box-shadow: 0px 0px 10px 5px white;
-
-    }
-    50%{
-      box-shadow: 0px 0px 22px 1px white;
-      width: 0px;
-
-    }
-    100%{
-
-      box-shadow: 0px 0px 10px 5px white;
-    }
-  }
-`;
 
 function App() {
 
+  const [resolvedContent, setContent] = useState(null);
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+
+  useEffect(() => {
+    resolver.resolve(content).then(resolved => setContent(resolved.result))
+  }, [])
+
   return (<>
-    {/* <LightRay></LightRay> */}
-    <ViewContainer className="view-container">
-      <Page>
-        {Object.keys(content).map(section => sectionParser({ section: content[section], type: section }))}
-      </Page>
-    </ViewContainer>
+    <Context.Provider value={{
+      ...state,
+      dispatch
+    }}>
+
+      {resolvedContent ?
+        <ViewContainer className="view-container">
+          <Page >
+            {Object.keys(resolvedContent).map(section =>
+              sectionParser({
+                section: resolvedContent[section],
+                type: section
+              }))}
+          </Page>
+        </ViewContainer>
+        : <></>}
+    </Context.Provider>
   </>
   )
 }
