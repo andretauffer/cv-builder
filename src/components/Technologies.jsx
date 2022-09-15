@@ -21,7 +21,7 @@ const TechContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  width: calc(100%/8);
+  width: calc(100%/12);
   text-align: center;
   margin: 20px 0;
   /* white-space: ; */
@@ -99,7 +99,7 @@ const TechsContainer = styled.div`
   padding: 20px;
   border-radius: 20px;
   background-color: white;
-  height: 240px;
+  height: 280px;
   overflow: auto;
   position: sticky;
 `;

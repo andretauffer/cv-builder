@@ -17,6 +17,331 @@
       "$ref": "#/technologies/technologies/1/title"
     }
   ],
+  "definitions": {
+    "RestAPI": "RESTful API",
+    "MobProgramming": "Mob Programming",
+    "VersionControl": "VersionControl",
+    "MicroServices": "MicroServices",
+    "Storage": "Storage",
+    "Database": "Database",
+    "DevOps": "DevOps",
+    "TDD": "TDD",
+    "UnitTest": "UnitTest",
+    "SnapshotTest": "SnapshotTest",
+    "EndToEndTest": "EndToEndTest",
+    "IntegrationTest": "IntegrationTest",
+    "Architecture": "Architecture",
+    "Consultant": "Consultant",
+    "Fullstack": "Fullstack",
+    "Languages": "Languages",
+    "Web": "Web",
+    "Frontend": "Frontend",
+    "Server": "Server",
+    "Backend": "Backend",
+    "e-commerce": "e-commerce",
+    "BDD": "BDD",
+    "ReactJS": {
+      "title": "ReactJS",
+      "url": "/src/assets/React-icon.svg",
+      "keywords": [
+        {
+          "$ref": "#/definitions/Frontend"
+        },
+        {
+          "$ref": "#/definitions/Web"
+        }
+      ]
+    },
+    "JavaScript": {
+      "title": "JavaScript",
+      "url": "/src/assets/Javascript_badge.svg",
+      "keywords": [
+        {
+          "$ref": "#/definitions/Fullstack"
+        },
+        {
+          "$ref": "#/definitions/Frontend"
+        },
+        {
+          "$ref": "#/definitions/Languages"
+        },
+        {
+          "$ref": "#/definitions/Web"
+        }
+      ]
+    },
+    "CSS": {
+      "title": "CSS",
+      "url": "/src/assets/CSS3_logo_and_wordmark.svg",
+      "keywords": [
+        {
+          "$ref": "#/definitions/Frontend"
+        },
+        {
+          "$ref": "#/definitions/Languages"
+        },
+        {
+          "$ref": "#/definitions/Web"
+        }
+      ]
+    },
+    "HTML": {
+      "title": "HTML",
+      "url": "/src/assets/HTML5_logo_and_wordmark.svg",
+      "keywords": [
+        {
+          "$ref": "#/definitions/Frontend"
+        },
+        {
+          "$ref": "#/definitions/Languages"
+        },
+        {
+          "$ref": "#/definitions/Web"
+        }
+      ]
+    },
+    "TypeScript": {
+      "title": "TypeScript",
+      "url": "/src/assets/Typescript_logo_2020.svg.png",
+      "keywords": [
+        {
+          "$ref": "#/definitions/Fullstack"
+        },
+        {
+          "$ref": "#/definitions/Frontend"
+        },
+        {
+          "$ref": "#/definitions/Languages"
+        },
+        {
+          "$ref": "#/definitions/Web"
+        }
+      ]
+    },
+    "NodeJS": {
+      "title": "NodeJS",
+      "url": "/src/assets/nodejs-new-pantone-black.svg",
+      "keywords": [
+        {
+          "$ref": "#/definitions/Fullstack"
+        },
+        {
+          "$ref": "#/definitions/Backend"
+        },
+        {
+          "$ref": "#/definitions/Server"
+        },
+        {
+          "$ref": "#/definitions/RestAPI"
+        },
+        {
+          "$ref": "#/definitions/Languages"
+        }
+      ]
+    },
+    "Redux": {
+      "title": "Redux",
+      "url": "/src/assets/redux-logo-9CA6836C12-seeklogo.com.png",
+      "keywords": [
+        {
+          "$ref": "#/definitions/Frontend/title"
+        },
+        {
+          "$ref": "#/definitions/ReactJS/title"
+        }
+      ]
+    },
+    "Docker": {
+      "title": "Docker",
+      "url": "/src/assets/Moby-logo.webp",
+      "keywords": [
+        {
+          "$ref": "#/definitions/Architecture"
+        },
+        {
+          "$ref": "#/definitions/MicroServices"
+        }
+      ]
+    },
+    "Github": {
+      "title": "Github",
+      "url": "/src/assets/Octocat.png",
+      "keywords": [
+        {
+          "$ref": "#/definitions/VersionControl"
+        }
+      ]
+    },
+    "AWSCodeCommit": {
+      "title": "AWS Code Commit",
+      "url": "/src/assets/aws-code-commit.png",
+      "keywords": [
+        {
+          "$ref": "#/definitions/VersionControl"
+        }
+      ]
+    },
+    "AmazonWebServices": {
+      "title": "Amazon Web Services",
+      "url": "/src/assets/aws_logo_smile_1200x630.png"
+    },
+    "AWSLambda": {
+      "title": "AWS Lambda",
+      "url": "/src/assets/aws-lambda-logo.png",
+      "keywords": [
+        {
+          "$ref": "#/definitions/MicroServices"
+        },
+        {
+          "$ref": "#/definitions/RestAPI"
+        }
+      ]
+    },
+    "AWSAPIGateway": {
+      "title": "AWS API Gateway",
+      "url": "/src/assets/aws-api-gateway.svg",
+      "keywords": [
+        {
+          "$ref": "#/definitions/RestAPI"
+        }
+      ]
+    },
+    "AWSCloudWatch": {
+      "title": "AWS Cloud Watch",
+      "url": "/src/assets/aws-cloudwatch-logo-png-transparent.png",
+      "keywords": [
+        {
+          "$ref": "#/definitions/DevOps"
+        }
+      ]
+    },
+    "AWSS3": {
+      "title": "AWS S3",
+      "url": "/src/assets/Amazon-S3-Logo.svg.png",
+      "keywords": [
+        {
+          "$ref": "#/definitions/Storage"
+        }
+      ]
+    },
+    "AWSCodePipeline": {
+      "title": "AWS Code Pipeline",
+      "url": "/src/assets/code-pipeline.png",
+      "keywords": [
+        {
+          "$ref": "#/definitions/Architecture"
+        }
+      ]
+    },
+    "AWSDynamoDB": {
+      "title": "AWS DynamoDB",
+      "url": "/src/assets/aws-dynamodb-logo-png-transparent.png",
+      "keywords": [
+        {
+          "$ref": "#/definitions/Storage"
+        },
+        {
+          "$ref": "#/definitions/Database"
+        }
+      ]
+    },
+    "PostgresQL": {
+      "title": "PostgresQL",
+      "url": "/src/assets/postgresql.org",
+      "keywords": [
+        {
+          "$ref": "#/definitions/Storage"
+        },
+        {
+          "$ref": "#/definitions/Database"
+        }
+      ]
+    },
+    "Jest": {
+      "title": "Jest",
+      "url": "/src/assets/jest-logo.png",
+      "keywords": [
+        {
+          "$ref": "#/definitions/TDD"
+        },
+        {
+          "$ref": "#/definitions/UnitTest"
+        }
+      ]
+    },
+    "ReactTestingLibrary": {
+      "title": "React Testing Library",
+      "url": "/src/assets/octopus-128x128.png",
+      "keywords": [
+        {
+          "$ref": "#/definitions/TDD"
+        },
+        {
+          "$ref": "#/definitions/UnitTest"
+        },
+        {
+          "$ref": "#/definitions/SnapshotTest"
+        }
+      ]
+    },
+    "Cypress": {
+      "title": "Cypress",
+      "url": "/src/assets/Cypress-logo.webp",
+      "keywords": [
+        {
+          "$ref": "#/definitions/TDD"
+        },
+        {
+          "$ref": "#/definitions/IntegrationTest"
+        },
+        {
+          "$ref": "#/definitions/EndToEndTest"
+        }
+      ]
+    },
+    "Storybook": {
+      "title": "Storybook",
+      "url": "/src/assets/371510.svg",
+      "keywords": [
+        {
+          "$ref": "#/definitions/TDD"
+        },
+        {
+          "$ref": "#/definitions/IntegrationTest"
+        },
+        {
+          "$ref": "#/definitions/EndToEndTest"
+        }
+      ]
+    },
+    "Cucumber": {
+      "title": "Cucumber",
+      "url": "/src/assets/cucumber-open-icon.svg",
+      "keywords": [
+        {
+          "$ref": "#/definitions/BDD"
+        },
+        {
+          "$ref": "#/definitions/IntegrationTest"
+        },
+        {
+          "$ref": "#/definitions/EndToEndTest"
+        }
+      ]
+    },
+    "Mocha": {
+      "title": "Mocha",
+      "url": "/src/assets/mocha.svg",
+      "keywords": [
+        {
+          "$ref": "#/definitions/TDD"
+        },
+        {
+          "$ref": "#/definitions/UnitTest"
+        }
+      ]
+    }
+  },
   "intro": {
     "title": "André Girão Tauffer",
     "subtitle": "Full Stack Developer for beautiful apps",
@@ -43,184 +368,76 @@
     "title": "Languages and Frameworks",
     "technologies": [
       {
-        "title": "JavaScript",
-        "url": "/src/assets/Javascript_badge.svg",
-        "keywords": [
-          {
-            "$ref": "#/keywords/4"
-          },
-          {
-            "$ref": "#/keywords/5"
-          },
-          {
-            "$ref": "#/keywords/6"
-          },
-          {
-            "$ref": "#/technologies/technologies/0/title"
-          }
-        ]
+        "$ref": "#/definitions/JavaScript"
       },
       {
-        "title": "CSS",
-        "url": "/src/assets/CSS3_logo_and_wordmark.svg",
-        "keywords": [
-          {
-            "$ref": "#/keywords/4"
-          },
-          {
-            "$ref": "#/keywords/5"
-          },
-          {
-            "$ref": "#/keywords/6"
-          },
-          {
-            "$ref": "#/technologies/technologies/1/title"
-          }
-        ]
+        "$ref": "#/definitions/CSS"
       },
       {
-        "title": "HTML",
-        "url": "/src/assets/HTML5_logo_and_wordmark.svg",
-        "keywords": [
-          {
-            "$ref": "#/keywords/4"
-          },
-          {
-            "$ref": "#/keywords/5"
-          },
-          {
-            "$ref": "#/keywords/6"
-          },
-          {
-            "$ref": "#/technologies/technologies/2/title"
-          }
-        ]
+        "$ref": "#/definitions/HTML"
       },
       {
-        "title": "TypeScript",
-        "url": "/src/assets/Typescript_logo_2020.svg.png",
-        "keywords": [
-          {
-            "$ref": "#/keywords/4"
-          },
-          {
-            "$ref": "#/keywords/5"
-          },
-          {
-            "$ref": "#/keywords/6"
-          },
-          {
-            "$ref": "#/technologies/technologies/3/title"
-          }
-        ]
+        "$ref": "#/definitions/TypeScript"
       },
       {
-        "title": "NodeJS",
-        "url": "/src/assets/nodejs-new-pantone-black.svg",
-        "keywords": [
-          {
-            "$ref": "#/keywords/4"
-          },
-          {
-            "$ref": "#/keywords/7"
-          },
-          {
-            "$ref": "#/keywords/8"
-          },
-          {
-            "$ref": "#/technologies/technologies/4/title"
-          }
-        ]
+        "$ref": "#/definitions/NodeJS"
       },
       {
-        "title": "ReactJS",
-        "url": "/src/assets/React-icon.svg",
-        "keywords": [
-          {
-            "$ref": "#/keywords/4"
-          },
-          {
-            "$ref": "#/keywords/5"
-          },
-          {
-            "$ref": "#/keywords/6"
-          },
-          {
-            "$ref": "#/technologies/technologies/5/title"
-          }
-        ]
+        "$ref": "#/definitions/ReactJS"
       },
       {
-        "title": "Redux",
-        "url": "/src/assets/redux-logo-9CA6836C12-seeklogo.com.png"
+        "$ref": "#/definitions/Redux"
       },
       {
-        "title": "Docker",
-        "url": "/src/assets/Moby-logo.webp"
+        "$ref": "#/definitions/Docker"
       },
       {
-        "title": "Github",
-        "url": "/src/assets/Octocat.png"
+        "$ref": "#/definitions/Github"
       },
       {
-        "title": "AWS Code Commit",
-        "url": "/src/assets/aws-code-commit.png"
+        "$ref": "#/definitions/AWSCodeCommit"
       },
       {
-        "title": "Amazon Web Services",
-        "url": "/src/assets/aws_logo_smile_1200x630.png"
+        "$ref": "#/definitions/AmazonWebServices"
       },
       {
-        "title": "AWS Lambda",
-        "url": "/src/assets/aws-lambda-logo.png"
+        "$ref": "#/definitions/AWSLambda"
       },
       {
-        "title": "AWS API Gateway",
-        "url": "/src/assets/aws-api-gateway.svg"
+        "$ref": "#/definitions/AWSAPIGateway"
       },
       {
-        "title": "AWS Cloud Watch",
-        "url": "/src/assets/aws-cloudwatch-logo-png-transparent.png"
+        "$ref": "#/definitions/AWSCloudWatch"
       },
       {
-        "title": "AWS S3",
-        "url": "/src/assets/Amazon-S3-Logo.svg.png"
+        "$ref": "#/definitions/AWSS3"
       },
       {
-        "title": "AWS Code Pipeline",
-        "url": "/src/assets/code-pipeline.png"
+        "$ref": "#/definitions/AWSCodePipeline"
       },
       {
-        "title": "AWS DynamoDB",
-        "url": "/src/assets/aws-dynamodb-logo-png-transparent.png"
+        "$ref": "#/definitions/AWSDynamoDB"
       },
       {
-        "title": "PostgresQL",
-        "url": "/src/assets/postgresql.org"
+        "$ref": "#/definitions/PostgresQL"
       },
       {
-        "title": "Jest",
-        "url": "/src/assets/jest-logo.png"
+        "$ref": "#/definitions/Jest"
       },
       {
-        "title": "React Testing Library",
-        "url": "/src/assets/octopus-128x128.png"
+        "$ref": "#/definitions/ReactTestingLibrary"
       },
       {
-        "title": "Cypress",
-        "url": "/src/assets/Cypress-logo.webp"
+        "$ref": "#/definitions/Cypress"
       },
       {
-        "title": "Storybook",
-        "url": "/src/assets/371510.svg"
+        "$ref": "#/definitions/Storybook"
       },
       {
-        "title": "Cucumber",
-        "url": "/src/assets/cucumber-open-icon.svg"
+        "$ref": "#/definitions/Cucumber"
       },
       {
-        "title": "Mocha",
-        "url": "/src/assets/mocha.svg"
+        "$ref": "#/definitions/Mocha"
       }
     ]
   },
@@ -240,12 +457,54 @@
         },
         "description": "Perform as a Full Stack Javascript engineer to develop and maintain the provisioning systems for the company's services. More specifically develop and maintain a RESTful API and a developer portal that consumes the APIs as well. The role includes but is not limited to the full spectrum of tools used for developing those services, from data structuring in the database, to prototyping and building a responsive UI.",
         "keywords": [
-          "ReactJS",
           {
-            "$ref": "#/keywords/0"
+            "$ref": "#/definitions/ReactJS/title"
           },
-          "RESTful API",
-          "FullStack"
+          {
+            "$ref": "#/definitions/NodeJS/title"
+          },
+          {
+            "$ref": "#/definitions/AWSLambda/title"
+          },
+          {
+            "$ref": "#/definitions/AWSDynamoDB/title"
+          },
+          {
+            "$ref": "#/definitions/AWSAPIGateway/title"
+          },
+          {
+            "$ref": "#/definitions/AWSCodeCommit/title"
+          },
+          {
+            "$ref": "#/definitions/AWSCloudWatch/title"
+          },
+          {
+            "$ref": "#/definitions/AWSCodePipeline/title"
+          },
+          {
+            "$ref": "#/definitions/AWSS3/title"
+          },
+          {
+            "$ref": "#/definitions/AmazonWebServices/title"
+          },
+          {
+            "$ref": "#/definitions/Docker/title"
+          },
+          {
+            "$ref": "#/definitions/Fullstack"
+          },
+          {
+            "$ref": "#/definitions/RestAPI"
+          },
+          {
+            "$ref": "#/definitions/TDD"
+          },
+          {
+            "$ref": "#/definitions/BDD"
+          },
+          {
+            "$ref": "#/definitions/Frontend"
+          }
         ]
       },
       {
@@ -279,9 +538,39 @@
         },
         "description": "Employed my skills as a Full Stack Developer both to build an internal portal to be used by the students, and as a consultant for their customers.",
         "keywords": [
-          "consultant",
-          "FullStack",
-          "ReactJS"
+          {
+            "$ref": "#/definitions/Frontend"
+          },
+          {
+            "$ref": "#/definitions/Fullstack"
+          },
+          {
+            "$ref": "#/definitions/Consultant"
+          },
+          {
+            "$ref": "#/definitions/PostgresQL/title"
+          },
+          {
+            "$ref": "#/definitions/ReactJS/title"
+          },
+          {
+            "$ref": "#/definitions/NodeJS/title"
+          },
+          {
+            "$ref": "#/definitions/Mocha/title"
+          },
+          {
+            "$ref": "#/definitions/Jest/title"
+          },
+          {
+            "$ref": "#/definitions/ReactTestingLibrary/title"
+          },
+          {
+            "$ref": "#/definitions/MobProgramming"
+          },
+          {
+            "$ref": "#/definitions/Github/title"
+          }
         ]
       }
     ]
@@ -303,13 +592,37 @@
         "description": "Perform as a Full Stack Javascript engineer to develop and maintain the provisioning systems for the company's services. More specifically develop and maintain a RESTful API and a developer portal that consumes the APIs as well. The role includes but is not limited to the full spectrum of tools used for developing those services, from data structuring in the database, to prototyping and building a responsive UI.",
         "keywords": [
           {
-            "$ref": "#/keywords/0"
+            "$ref": "#/definitions/Frontend"
           },
           {
-            "$ref": "#/keywords/1"
+            "$ref": "#/definitions/Fullstack"
           },
           {
-            "$ref": "#/keywords/2"
+            "$ref": "#/definitions/Consultant"
+          },
+          {
+            "$ref": "#/definitions/PostgresQL/title"
+          },
+          {
+            "$ref": "#/definitions/ReactJS/title"
+          },
+          {
+            "$ref": "#/definitions/NodeJS/title"
+          },
+          {
+            "$ref": "#/definitions/Mocha/title"
+          },
+          {
+            "$ref": "#/definitions/Jest/title"
+          },
+          {
+            "$ref": "#/definitions/ReactTestingLibrary/title"
+          },
+          {
+            "$ref": "#/definitions/MobProgramming"
+          },
+          {
+            "$ref": "#/definitions/Github/title"
           }
         ]
       }
