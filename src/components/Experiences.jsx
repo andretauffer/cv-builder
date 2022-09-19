@@ -19,11 +19,12 @@ const ExperienceContainerBorder = styled.div`
   right: -5px;
   z-index: 0;
   border-radius: 25px;
+  transition: 1s ease all;
   ${props => props.selected ? `
-    animation: AnimationName 5s linear infinite;
-    background: radial-gradient(circle, var(--border-animation-color), transparent, transparent, transparent, transparent, transparent);
-    background-size: 200% 200%;
-
+    // animation: AnimationName 5s linear infinite;
+    // background: radial-gradient(circle, var(--border-animation-color), transparent, transparent, transparent, transparent, transparent);
+    // background-size: 200% 200%;
+    background-color: var(--border-animation-color);
     `: `
     background-color: transparent;
   `}
@@ -90,6 +91,7 @@ const KeyWordsContainer = styled.div`
   color: black;
   font-weight: bold;
   align-items: center;
+  flex-flow: row wrap;
 `;
 
 const Keyword = styled.p`
@@ -97,6 +99,10 @@ const Keyword = styled.p`
   font-weight: normal;
   color: black;
   padding-left: 10px;
+  background: var(--celadon);
+  padding: 6px;
+  border-radius: 5px;
+  margin: 3px;
 `;
 
 const parseDate = ({ date }) => {
@@ -169,7 +175,7 @@ export default ({ experiences, path }) => {
             Keywords:
 
             {keywords.map((keyword, index) =>
-              <Keyword>{keyword} {index < keywords.length - 1 ? "," : ""}</Keyword>
+              <Keyword>{keyword}</Keyword>
             )}
           </KeyWordsContainer>
         </ExperienceContent>

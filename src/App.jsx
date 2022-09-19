@@ -18,7 +18,7 @@ import { useEffect, useState, useReducer, useRef } from "react";
 const resolver = new Resolver();
 
 const ViewContainer = styled.div`
-  background-color: var(--melon);
+  background-color: var(--light-sky-blue);
   width: 100vw;
   padding: 40px 0;
 
@@ -89,7 +89,7 @@ const contentBox = ({ content, type, path }) => {
     </LinksContainer>,
     title: (text) => <Title sectionType={type} >{text}</Title>,
     subtitle: (text) => <Title sectionType={type} >{text}</Title>,
-    "technology-title": (text) => <Title sectionType={"technologies"} >{text}</Title>,
+    "technology-title": (text) => <Title className="technology-title" sectionType={"technologies"} >{text}</Title>,
     "content-box": (content) => contentBox({ content }),
     "content-boxes": (boxes) => boxes.map(content => contentBox({ content })),
     image: ({ url }) => <Image url={url} />,
@@ -119,10 +119,11 @@ const sectionParser = ({ section, type }) => {
         </ContentContainer>
       </ContentContainer>
     </Section>,
-    technologies: () => <Section key={type + title} backgroundColor={"#f5f2ed"}>
+    technologies: () => <><Section key={type + title} backgroundColor={"#f5f2ed"} stick={true}>
       {contentBox({ content: title, type: "technology-title" })}
+    </Section>
       {contentBox({ content: technologies, type: "technologies" })}
-    </Section>,
+    </>,
     experiences: () => <Section key={type + title}>
       {contentBox({ content: title, type: "technology-title" })}
       {contentBox({ content: assignments, type: "experiences", path: type + "/" })}

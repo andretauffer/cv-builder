@@ -5,6 +5,7 @@ import { usePopper } from "react-popper";
 
 const Container = styled.div`
   position: relative;
+  width: 100%;
   
 
   #tooltip[data-popper-placement^='top'] > #arrow {
@@ -102,7 +103,7 @@ export default ({ content, useSameWidth, listen, children }) => {
     // strategy: "fixed",
     modifiers: [
       { name: 'arrow', options: { element: arrowElement } },
-      ],
+    ],
   };
   if (useSameWidth) {
     options.modifiers.push(sameWidth);
@@ -112,7 +113,7 @@ export default ({ content, useSameWidth, listen, children }) => {
   const { styles, attributes, update, ...rest } = usePopper(referenceElement, popperElement, options);
 
   useEffect(() => {
-    if(update) {
+    if (update) {
       update();
     }
   }, [listen])

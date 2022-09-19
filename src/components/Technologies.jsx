@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import styled from "styled-components";
 import Tooltip from "./Tooltip";
 
@@ -13,8 +13,25 @@ const BlockContainer = styled.div`
   margin: 20px;
   /* padding: 20px; */
   border-radius: 20px;
-  background-color: white;
+  background-color: transparent;
   position: relative;
+  position: sticky;
+  top: -1px;;
+  z-index: 10;
+  &.is-pinned{
+    background-color: red;
+    .loupe{
+      display: none;
+    }
+    .techs-container{
+      height: 80px;
+      background-color: var(--lavender-blush);
+      border-radius: 0;
+    }
+    .tech-box {
+      width: 30px;
+    }
+  }
 `;
 
 const TechContainer = styled.div`
@@ -24,6 +41,7 @@ const TechContainer = styled.div`
   width: calc(100%/12);
   text-align: center;
   margin: 20px 0;
+  transition: 1s ease all;
   /* white-space: ; */
 `;
 
@@ -33,10 +51,10 @@ const Logo = styled.div`
   object-fit: cover;
   background-size: contain;
   background-position: center;
-  width: 80px;
-  height: 80px;
-  margin: 10px;
-  min-width: 40px;
+  width: 100%;
+  min-height: 60px;
+  /* margin: 10px; */
+  /* min-width: 40px; */
   /* width: 5px;
   min-width: 20px; */
 
@@ -102,6 +120,8 @@ const TechsContainer = styled.div`
   height: 280px;
   overflow: auto;
   position: sticky;
+  width: 100%;
+  transition:1s all ease;
 `;
 
 const filterTechnologies = ({ technologies, filter, keywords }) => {
@@ -121,16 +141,51 @@ const filterTechnologies = ({ technologies, filter, keywords }) => {
 export default ({ technologies }) => {
   const [openFilter, setOpenFilter] = useState(false);
   const [filter, setFilter] = useState("");
+  const [stick, setStuck] = useState(false);
+  console.log("the stick", stick)
+  const container = useRef(null);
 
   const { keywords, page } = useContext(Context);
 
-  console.log("the page", page)
+  console.log("the page", page);
 
-  return <BlockContainer>
-    <Loupe onClick={() => {
-      setOpenFilter(!openFilter)
-      setFilter("");
-    }} open={openFilter}>
+  let options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 1.0
+  }
+
+  useEffect(() => {
+    // let options = {
+    //   root: document.querySelector('#scrollArea'),
+    //   rootMargin: '0px',
+    //   threshold: 1.0
+    // }
+
+    const observer = new IntersectionObserver(
+      ([e]) => {
+        e.target.classList.toggle("is-pinned", e.intersectionRatio < 1);
+      },
+      options
+    );
+
+    if (container.current) {
+      observer.observe(container.current);
+    }
+
+    return () => {
+      if (container.current) observer.unobserve(container.current);
+    }
+  },
+    [container, options])
+
+  return <BlockContainer ref={container}>
+    <Loupe
+      className="loupe"
+      onClick={() => {
+        setOpenFilter(!openFilter)
+        setFilter("");
+      }} open={openFilter}>
       {openFilter && <StyledInput
         show={openFilter}
         autoFocus={true}
@@ -143,10 +198,10 @@ export default ({ technologies }) => {
           setFilter(e.target.value)
         }} value={filter}></StyledInput>}
     </Loupe>
-    <TechsContainer>
+    <TechsContainer className="techs-container">
 
       {filterTechnologies({ technologies, filter, keywords })
-        .map(({ title, url }) => <TechContainer key={title} direction="column nowrap" style={{ alignItems: "center" }}>
+        .map(({ title, url }) => <TechContainer className="tech-box" key={title} direction="column nowrap" style={{ alignItems: "center" }}>
           <Tooltip content={title} >
             <Logo url={url}></Logo>
           </Tooltip>
