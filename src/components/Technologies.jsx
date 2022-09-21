@@ -3,20 +3,18 @@ import styled from "styled-components";
 import Tooltip from "./Tooltip";
 
 import { Context } from "../Context"
-
-
+import { filterTechnologies } from "./utils";
 
 const BlockContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around ;
   margin: 20px;
-  /* padding: 20px; */
   border-radius: 20px;
   background-color: transparent;
   position: relative;
   position: sticky;
-  top: -1px;;
+  top: -200px;;
   z-index: 10;
   &.is-pinned{
     background-color: red;
@@ -25,11 +23,13 @@ const BlockContainer = styled.div`
     }
     .techs-container{
       height: 80px;
+      padding-top: 220px;
       background-color: var(--lavender-blush);
       border-radius: 0;
     }
     .tech-box {
-      width: 30px;
+      flex-grow: 1;
+      width: auto;
     }
   }
 `;
@@ -42,7 +42,6 @@ const TechContainer = styled.div`
   text-align: center;
   margin: 20px 0;
   transition: 1s ease all;
-  /* white-space: ; */
 `;
 
 const Logo = styled.div`
@@ -53,11 +52,6 @@ const Logo = styled.div`
   background-position: center;
   width: 100%;
   min-height: 60px;
-  /* margin: 10px; */
-  /* min-width: 40px; */
-  /* width: 5px;
-  min-width: 20px; */
-
 `;
 
 const Loupe = styled.div`
@@ -92,6 +86,10 @@ const Loupe = styled.div`
     background-image: url("/src/assets/OOjs_UI_icon_close-ltr.svg");
 
   `}
+
+  @media print {
+    display:none;
+  }
 `;
 
 const StyledInput = styled.input`
@@ -124,30 +122,13 @@ const TechsContainer = styled.div`
   transition:1s all ease;
 `;
 
-const filterTechnologies = ({ technologies, filter, keywords }) => {
-
-  if (keywords.length) {
-    return technologies.filter(technology => {
-      if (keywords.includes(technology.title)) return true;
-
-      return (technology.keywords) && !!technology.keywords.find(kw => keywords.includes(kw));
-    })
-  }
-
-  return technologies
-    .filter(({ title }) => title.toLowerCase().includes(filter.toLowerCase()))
-}
-
-export default ({ technologies }) => {
+export default ({ technologies, ...more }) => {
   const [openFilter, setOpenFilter] = useState(false);
   const [filter, setFilter] = useState("");
-  const [stick, setStuck] = useState(false);
-  console.log("the stick", stick)
+
   const container = useRef(null);
 
-  const { keywords, page } = useContext(Context);
-
-  console.log("the page", page);
+  const { keywords, ...rest } = useContext(Context);
 
   let options = {
     root: null,
@@ -156,11 +137,6 @@ export default ({ technologies }) => {
   }
 
   useEffect(() => {
-    // let options = {
-    //   root: document.querySelector('#scrollArea'),
-    //   rootMargin: '0px',
-    //   threshold: 1.0
-    // }
 
     const observer = new IntersectionObserver(
       ([e]) => {

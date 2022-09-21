@@ -1,0 +1,7 @@
+// Vitest Snapshot v1
+
+exports[`The Technologies view snapshots > renders with all icons when no keywords are selected 1`] = `
+<DocumentFragment>
+  <div />
+</DocumentFragment>
+`;

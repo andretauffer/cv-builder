@@ -11,7 +11,6 @@ const Section = styled.section`
     position: sticky;
     top: 0;
     background-color: var(--lavender-blush);
-    
   `}
 `;
 

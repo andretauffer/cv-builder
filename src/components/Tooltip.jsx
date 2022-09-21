@@ -41,7 +41,7 @@ export const PopperContent = styled.div`
   font-size: 13px;
   border-radius: 4px;
   max-width: 100%;
-  
+  min-width: 100px;
   (&.)[data-popper-placement^='top'] > #arrow {
     bottom: -4px;
   }

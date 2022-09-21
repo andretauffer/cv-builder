@@ -1,22 +1,4 @@
 {
-  "keywords": [
-    "ReactJS",
-    "RESTful API",
-    "FullStack",
-    "languages",
-    "web",
-    "frontend",
-    "server",
-    "backend",
-    "consultant",
-    "FullStack",
-    {
-      "$ref": "#/technologies/technologies/0/title"
-    },
-    {
-      "$ref": "#/technologies/technologies/1/title"
-    }
-  ],
   "definitions": {
     "RestAPI": "RESTful API",
     "MobProgramming": "Mob Programming",
@@ -144,7 +126,7 @@
       "url": "/src/assets/redux-logo-9CA6836C12-seeklogo.com.png",
       "keywords": [
         {
-          "$ref": "#/definitions/Frontend/title"
+          "$ref": "#/definitions/Frontend"
         },
         {
           "$ref": "#/definitions/ReactJS/title"
@@ -174,7 +156,7 @@
     },
     "AWSCodeCommit": {
       "title": "AWS Code Commit",
-      "url": "/src/assets/aws-code-commit.png",
+      "url": "/src/assets/aws-codecommit.svg",
       "keywords": [
         {
           "$ref": "#/definitions/VersionControl"
@@ -183,7 +165,7 @@
     },
     "AmazonWebServices": {
       "title": "Amazon Web Services",
-      "url": "/src/assets/aws_logo_smile_1200x630.png"
+      "url": "/src/assets/Amazon_Web_Services_Logo.svg"
     },
     "AWSLambda": {
       "title": "AWS Lambda",
@@ -226,7 +208,7 @@
     },
     "AWSCodePipeline": {
       "title": "AWS Code Pipeline",
-      "url": "/src/assets/code-pipeline.png",
+      "url": "/src/assets/aws-codepipeline.svg",
       "keywords": [
         {
           "$ref": "#/definitions/Architecture"
@@ -247,7 +229,7 @@
     },
     "PostgresQL": {
       "title": "PostgresQL",
-      "url": "/src/assets/postgresql.org",
+      "url": "/src/assets/Postgresql_elephant.svg",
       "keywords": [
         {
           "$ref": "#/definitions/Storage"

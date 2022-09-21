@@ -1,9 +1,7 @@
 import { useEffect, useContext } from "react";
-import { useState } from "react";
 import styled from "styled-components";
 import { Context } from "../Context";
-
-const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dev"];
+import { parseDate, parseDescription } from "./utils";
 
 const BlockContainer = styled.div`
   padding: 0px 0px 20px;
@@ -104,24 +102,6 @@ const Keyword = styled.p`
   border-radius: 5px;
   margin: 3px;
 `;
-
-const parseDate = ({ date }) => {
-  if (date.toLowerCase() === "current") {
-    return date;
-  } else if (date) {
-    const dateObj = new Date(date);
-
-    const day = dateObj.getDate();
-    const month = months[dateObj.getMonth()];
-    const year = dateObj.getFullYear();
-    return `${day} ${month} ${year}`
-  }
-};
-
-const parseDescription = ({ description }) => description
-  .split(/\.\s/)
-  .filter(e => !!e)
-  .map(string => !string.endsWith(".") ? string + ". " : string);
 
 export default ({ experiences, path }) => {
 

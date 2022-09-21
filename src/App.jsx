@@ -21,7 +21,25 @@ const ViewContainer = styled.div`
   background-color: var(--light-sky-blue);
   width: 100vw;
   padding: 40px 0;
+  @media print {
+    padding: 0;
+  }
 
+`;
+
+const ActionIcons = styled.div`
+  background-image: ${props => `url(${props.url})`};
+  background-repeat: no-repeat;
+  background-size: 50px 50px;
+  width: 50px;
+  height: 50px;
+  position: sticky;
+  float: right;
+  top: 50px;
+  right: 50px;
+  @media print {
+    display:none;
+  }
 `;
 
 const Image = styled.div`
@@ -145,13 +163,18 @@ function App() {
 
   useEffect(() => {
     resolver.resolve(content).then(resolved => setContent(resolved.result))
-  }, [])
+  }, []);
+
+  const onPrint = () => {
+    window.print();
+  }
 
   return (<>
     <Context.Provider value={{
       ...state,
       dispatch
     }}>
+      <ActionIcons onClick={onPrint} url="/src/assets/printer-svgrepo-com.svg" />
 
       {resolvedContent ?
         <ViewContainer className="view-container">
