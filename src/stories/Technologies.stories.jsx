@@ -28,14 +28,46 @@ const Template = (args) => <TechnologiesSignature {...args} />;
 export const AllTechs = Template.bind({});
 AllTechs.decorators = [
   (Story) => {
-    
+
     return <div>
 
       <Context.Provider
         value={{
           keywords: []
         }}>
-        <Story  />
+        <Story />
+      </Context.Provider>
+    </div>
+  }
+];
+
+export const Frontend = Template.bind({});
+Frontend.decorators = [
+  (Story) => {
+
+    return <div>
+
+      <Context.Provider
+        value={{
+          keywords: ["Frontend"]
+        }}>
+        <Story />
+      </Context.Provider>
+    </div>
+  }
+];
+
+export const Backend = Template.bind({});
+Backend.decorators = [
+  (Story) => {
+
+    return <div>
+
+      <Context.Provider
+        value={{
+          keywords: ["Backend"]
+        }}>
+        <Story />
       </Context.Provider>
     </div>
   }
