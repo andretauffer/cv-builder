@@ -1,4 +1,5 @@
 import { useEffect, useContext } from "react";
+import { isMobile } from "react-device-detect";
 import styled from "styled-components";
 import { Context } from "../Context";
 import { parseDate, parseDescription } from "./utils";
@@ -51,12 +52,23 @@ const ExperienceContent = styled.div`
   z-index: 1;
   position: relative;
 
+  ${props => props.selected && `
+    background-color: var(--selected-color);
+  `};
+  ${isMobile && `
+    padding: 0;
+  `}
+
 `;
 
 const JobTitle = styled.p`
   all: unset;
   color: black;
   font-size: 18px;
+
+  ${isMobile && `
+    font-size: 16px;
+  `}
 
 `;
 
@@ -65,14 +77,17 @@ const PeriodContainer = styled.div`
   flex-flow: row nowrap;
   color: black;
   justify-content: flex-start;
-  * {
-  }
+  ${isMobile && `
+    font-size: 14px;
+  `}
   `;
 const DateParagraph = styled.p`
   all: initial;
   padding-right: 10px;
   font-weight: bold;
-  
+  ${isMobile && `
+    font-size: 14px;
+  `}
 `;
 
 const JobDescription = styled.div`
@@ -82,6 +97,9 @@ const JobDescription = styled.div`
 const JobDescriptionParagraph = styled.p`
   all: initial;
   color: black;
+  ${isMobile && `
+    font-size: 14px;
+  `}
 `;
 
 const KeyWordsContainer = styled.div`
@@ -90,6 +108,9 @@ const KeyWordsContainer = styled.div`
   font-weight: bold;
   align-items: center;
   flex-flow: row wrap;
+  ${isMobile && `
+    font-size: 14px;
+  `}
 `;
 
 const Keyword = styled.p`
@@ -101,6 +122,10 @@ const Keyword = styled.p`
   padding: 6px;
   border-radius: 5px;
   margin: 3px;
+  ${isMobile && `
+    font-size: 14px;
+    padding: 3px;
+  `}
 `;
 
 export default ({ experiences, path }) => {
@@ -131,7 +156,7 @@ export default ({ experiences, path }) => {
           dispatch({ type: "SET_KEYWORDS", keywords });
         }}
         onBlur={() => dispatch({ type: "SET_SELECTED", selected: undefined })}>
-        <ExperienceContainerBorder {...{ selected: selected === path + index }} />
+        {/* <ExperienceContainerBorder {...{ selected: selected === path + index }} /> */}
         <ExperienceContent {...{ selected: selected === path + index }}>
 
           <JobTitle>{title} at {institution.name}</JobTitle>

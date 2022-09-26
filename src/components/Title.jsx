@@ -1,4 +1,8 @@
+import { isMobile } from "react-device-detect";
 import styled from "styled-components";
+import { breakPoint1 } from "../ViewConfigurations";
+
+
 
 const Title = styled.p`
   all: unset;
@@ -14,7 +18,16 @@ const Main = styled(Title)`
   text-indent: 20px;
   font-size: 32px;
   font-weight: 800;
-
+  ${isMobile && `
+    order: 2;
+    font-size: 18px;
+    padding: 5px 0;
+  `}
+  @media only screen and (min-width: ${breakPoint1}) {
+    order: 2;
+    font-size: 24px;
+    padding: 5px 0;
+  }
 `;
 
 const Subtitle = styled(Title)`
@@ -23,12 +36,25 @@ const Subtitle = styled(Title)`
   color: black;
   text-indent: 20px;
   margin-bottom: 20px;
+  ${isMobile && `
+    order: 3;
+    font-size: 14px;
+    padding: 0;
+  `}
+  @media only screen and (min-width: ${breakPoint1}) {
+    order: 3;
+    font-size: 14px;
+    padding: 0;
+  }
 `;
 
 const Technologies = styled(Title)`
   font-size: 24px;
   text-indent: 20px;
   margin: 20px 0;
+  ${isMobile && `
+    font-size: 16px;
+  `}
 `;
 const Experience = styled(Title)``;
 

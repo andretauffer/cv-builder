@@ -37,7 +37,9 @@
   --border-animation-color: var(--light-sky-blue);
   /* --header-font-family: var(--noto-font-family); */
   --header-font-family: var(--alfa-font-family);
-
+  --selected-color: #f3f7f3;
+  
+  --break-point: 1200px;
 
 }
 

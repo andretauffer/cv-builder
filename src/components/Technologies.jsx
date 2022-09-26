@@ -4,6 +4,8 @@ import Tooltip from "./Tooltip";
 
 import { Context } from "../Context"
 import { filterTechnologies } from "./utils";
+import { breakPoint1 } from "../ViewConfigurations";
+import { isMobile } from "react-device-detect";
 
 const BlockContainer = styled.div`
   display: flex;
@@ -17,19 +19,25 @@ const BlockContainer = styled.div`
   top: -200px;;
   z-index: 10;
   &.is-pinned{
-    background-color: red;
-    .loupe{
-      display: none;
-    }
-    .techs-container{
-      height: 80px;
-      padding-top: 220px;
-      background-color: var(--lavender-blush);
-      border-radius: 0;
-    }
-    .tech-box {
-      flex-grow: 1;
-      width: auto;
+    @media only screen and (max-width: ${breakPoint1}) {
+
+      ${!isMobile && `
+
+        background-color: red;
+        .loupe{
+          display: none;
+        }
+        .techs-container{
+          height: 80px;
+          padding-top: 220px;
+          /* background-color: var(--lavender-blush); */
+          border-radius: 0;
+        }
+        .tech-box {
+          flex-grow: 1;
+          width: auto;
+        }
+        `}
     }
   }
 `;
@@ -42,6 +50,15 @@ const TechContainer = styled.div`
   text-align: center;
   margin: 20px 0;
   transition: 1s ease all;
+  @media only screen and (min-width: ${breakPoint1}) {
+    width: clamp(40px, 5%, 60px);
+    margin: clamp(5px, 2%, 20px);
+  }
+  ${isMobile && `
+    width: clamp(40px, 5%, 60px);
+    margin: clamp(5px, 2%, 20px);
+  
+  `}
 `;
 
 const Logo = styled.div`

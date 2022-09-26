@@ -14,16 +14,23 @@ import { Resolver } from "@stoplight/json-ref-resolver";
 import { initialState, Context, reducer } from "./Context"
 
 import { useEffect, useState, useReducer, useRef } from "react";
+import { breakPoint1, breakPoint2 } from "./ViewConfigurations";
+import { isMobile } from "react-device-detect";
 
 const resolver = new Resolver();
 
+
+
 const ViewContainer = styled.div`
-  background-color: var(--light-sky-blue);
+  background-color: white;
   width: 100vw;
   padding: 40px 0;
   @media print {
     padding: 0;
   }
+  ${isMobile && `
+    padding: 0;
+  `}
 
 `;
 
@@ -51,13 +58,27 @@ const Image = styled.div`
   border-radius: 20px;
   margin: 20px;
   min-width: 200px;
+  @media only screen and (min-width: ${breakPoint1}) {
+    order: 1;
+    background-size: 100% auto;
+    width: calc(100% - 40px);
+    height: 300px;
+    /* object-fit: cover */
+  }
+  ${isMobile && `
+      background-size: 100% auto;
+      background-position: 0;
+      width: 100px;
+      height: 100px;
+      min-width: auto;
+  `} 
 
 `;
 
 
 const LinkTitle = styled.p`
   all: unset;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   color: black;
 `;
@@ -66,6 +87,7 @@ const Link = styled.a`
   color: var(--links-color);
   font-weight: bold;
   text-decoration: none;
+  font-size: 14px;
 `;
 
 const LinksContainer = styled.div`
@@ -75,6 +97,18 @@ const LinksContainer = styled.div`
   background-color: var(--celadon);
   padding: 20px;
   border-radius: 20px;
+  width: 160px;
+  ${isMobile && `
+    order: 1;
+    width: auto;
+    margin: auto 0 0;
+    background-color: transparent;
+    padding: 5px 0 20px;
+  `}
+  @media only screen and (min-width: ${breakPoint1}) {
+    order: 5;
+    width: auto;
+  }
 `;
 
 const DescriptionContainer = styled.div`
@@ -86,11 +120,40 @@ const DescriptionContainer = styled.div`
   padding: 20px;
   border-radius: 20px;
   margin: 20px;
+  @media only screen and (max-width: ${breakPoint1}) {
+    width: 50%;
+  }
+  @media only screen and (max-width: ${breakPoint2}) {
+    width: auto;
+  }
+  ${isMobile && `
+    order:4;
+    background-color: transparent;
+    color: black;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+  `}
+
+  @media only screen and (min-width: ${breakPoint1}) {
+    order:4;
+    background-color: transparent;
+    color: black;
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 const Description = styled.p`
   all: unset;
   margin: 10px 20px;
+  @media only screen and (min-width: ${breakPoint1}) {
+    margin: 5px 20px;
+  }
+  ${isMobile && `
+      margin: 5px 20px;
+      font-size: 14px;
+  `}
 `;
 
 
@@ -125,7 +188,13 @@ const sectionParser = ({ section, type }) => {
   const sectionTypes = {
     intro: () => <Section key={"intro" + title}>
       <ContentContainer>
-        <ContentContainer direction="column nowrap">
+
+        {contentBox({ content: title, type: "title" })}
+        {contentBox({ content: subtitle, type: "subtitle" })}
+        {contentBox({ content: description, type: "description" })}
+        {contentBox({ content: image, type: "image" })}
+        {contentBox({ content: links, type: "links" })}
+        {/* <ContentContainer direction="column nowrap">
 
           {contentBox({ content: title, type: "title" })}
           {contentBox({ content: subtitle, type: "subtitle" })}
@@ -134,13 +203,13 @@ const sectionParser = ({ section, type }) => {
         <ContentContainer direction="column nowrap">
           {contentBox({ content: image, type: "image" })}
           {contentBox({ content: links, type: "links" })}
-        </ContentContainer>
+        </ContentContainer> */}
       </ContentContainer>
     </Section>,
     technologies: () => <><Section key={type + title} backgroundColor={"#f5f2ed"} stick={true}>
       {contentBox({ content: title, type: "technology-title" })}
-    </Section>
       {contentBox({ content: technologies, type: "technologies" })}
+    </Section>
     </>,
     experiences: () => <Section key={type + title}>
       {contentBox({ content: title, type: "technology-title" })}
@@ -153,7 +222,50 @@ const sectionParser = ({ section, type }) => {
   };
 
   return sectionTypes[type] ? sectionTypes[type]() : <></>;
-}
+};
+
+const FirstColumn = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  width: clamp(400px, 30%, 800px);
+  @media only screen and (max-width: ${breakPoint1}) {
+    width: auto;
+  }
+  `;
+
+const SecondColumn = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  width: clamp(400px, 60%, 1100px);
+  @media only screen and (max-width: ${breakPoint1}) {
+    width: auto;
+  }
+  `;
+
+const Layout = ({ layoutType, sections }) => {
+
+  const layoutDecider = {
+    basic: () => <Page pageLayout={"basic"}>
+      <FirstColumn>
+        {sections.intro && sectionParser({ section: sections.intro, type: "intro" })}
+        {sections.technologies && sectionParser({ section: sections.technologies, type: "technologies" })}
+      </FirstColumn>
+      <SecondColumn>
+        {sections.experiences && sectionParser({ section: sections.experiences, type: "experiences" })}
+        {sections.education && sectionParser({ section: sections.education, type: "education" })}
+      </SecondColumn>
+    </Page>,
+    default: () => <Page>
+      {Object.keys(sections).map(section =>
+        sectionParser({
+          section: sections[section],
+          type: section
+        }))}
+    </Page>
+  };
+
+  return layoutDecider[layoutType] ? layoutDecider[layoutType]() : layoutDecider.default();
+};
 
 function App() {
 
@@ -172,19 +284,14 @@ function App() {
   return (<>
     <Context.Provider value={{
       ...state,
-      dispatch
+      dispatch,
+      breakPoint1
     }}>
-      <ActionIcons onClick={onPrint} url="/src/assets/printer-svgrepo-com.svg" />
+      {/* <ActionIcons onClick={onPrint} url="/src/assets/printer-svgrepo-com.svg" /> */}
 
       {resolvedContent ?
         <ViewContainer className="view-container">
-          <Page >
-            {Object.keys(resolvedContent).map(section =>
-              sectionParser({
-                section: resolvedContent[section],
-                type: section
-              }))}
-          </Page>
+          <Layout sections={resolvedContent} layoutType={"basic"} />
         </ViewContainer>
         : <></>}
     </Context.Provider>
