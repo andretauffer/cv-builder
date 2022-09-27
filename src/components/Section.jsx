@@ -5,7 +5,7 @@ import { useContext } from "react";
 const Section = styled.section`
   display: flex;
   flex-flow: column nowrap;
-  box-shadow: -3px 2px 7px 0px #00000038;
+  box-shadow: -3px 3px 10px 0px #0000002e;
   /* margin: 10px 0; */
   margin: 10px;
   /* background-color: var(--lavender-blush); */

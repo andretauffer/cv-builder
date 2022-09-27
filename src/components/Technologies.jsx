@@ -22,16 +22,21 @@ const BlockContainer = styled.div`
     @media only screen and (max-width: ${breakPoint1}) {
 
       ${!isMobile && `
-
+        
         background-color: red;
         .loupe{
           display: none;
         }
         .techs-container{
           height: 80px;
-          padding-top: 220px;
-          /* background-color: var(--lavender-blush); */
+          top: 0;
+          width: calc(80% - 60px);
+          border: 10px solid var(--celadon);
+
+          // padding-top: 220px;
+          // background-color: var(--lavender-blush);
           border-radius: 0;
+          position: fixed;
         }
         .tech-box {
           flex-grow: 1;
@@ -137,6 +142,13 @@ const TechsContainer = styled.div`
   position: sticky;
   width: 100%;
   transition:1s all ease;
+  @media only screen and (min-width: ${breakPoint1}) {
+    height: auto;
+  }
+  ${isMobile && `
+    height: auto;
+  
+  `}
 `;
 
 export default ({ technologies, ...more }) => {
