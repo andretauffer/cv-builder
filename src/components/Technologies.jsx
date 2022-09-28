@@ -77,7 +77,7 @@ const Logo = styled.div`
 `;
 
 const Loupe = styled.div`
-  background-image: url("/src/assets/Magnifying_glass_icon.svg");
+  background-image: url("Magnifying_glass_icon.svg");
   background-repeat: no-repeat;
   background-size: 20px 20px;
   background-color: white;
@@ -105,7 +105,7 @@ const Loupe = styled.div`
   ${props => props.open && `
     width: 300px;
     background-position: 270px center;
-    background-image: url("/src/assets/OOjs_UI_icon_close-ltr.svg");
+    background-image: url("OOjs_UI_icon_close-ltr.svg");
 
   `}
 

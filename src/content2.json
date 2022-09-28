@@ -24,7 +24,7 @@
     "BDD": "BDD",
     "ReactJS": {
       "title": "ReactJS",
-      "url": "/src/assets/React-icon.svg",
+      "url": "React-icon.svg",
       "keywords": [
         {
           "$ref": "#/definitions/Frontend"
@@ -36,7 +36,7 @@
     },
     "JavaScript": {
       "title": "JavaScript",
-      "url": "/src/assets/Javascript_badge.svg",
+      "url": "Javascript_badge.svg",
       "keywords": [
         {
           "$ref": "#/definitions/Fullstack"
@@ -54,7 +54,7 @@
     },
     "CSS": {
       "title": "CSS",
-      "url": "/src/assets/CSS3_logo_and_wordmark.svg",
+      "url": "CSS3_logo_and_wordmark.svg",
       "keywords": [
         {
           "$ref": "#/definitions/Frontend"
@@ -69,7 +69,7 @@
     },
     "HTML": {
       "title": "HTML",
-      "url": "/src/assets/HTML5_logo_and_wordmark.svg",
+      "url": "HTML5_logo_and_wordmark.svg",
       "keywords": [
         {
           "$ref": "#/definitions/Frontend"
@@ -84,7 +84,7 @@
     },
     "TypeScript": {
       "title": "TypeScript",
-      "url": "/src/assets/Typescript_logo_2020.svg.png",
+      "url": "Typescript_logo_2020.svg.png",
       "keywords": [
         {
           "$ref": "#/definitions/Fullstack"
@@ -102,7 +102,7 @@
     },
     "NodeJS": {
       "title": "NodeJS",
-      "url": "/src/assets/nodejs-new-pantone-black.svg",
+      "url": "nodejs-new-pantone-black.svg",
       "keywords": [
         {
           "$ref": "#/definitions/Fullstack"
@@ -123,7 +123,7 @@
     },
     "Redux": {
       "title": "Redux",
-      "url": "/src/assets/redux-logo-9CA6836C12-seeklogo.com.png",
+      "url": "redux-logo-9CA6836C12-seeklogo.com.png",
       "keywords": [
         {
           "$ref": "#/definitions/Frontend"
@@ -135,7 +135,7 @@
     },
     "Docker": {
       "title": "Docker",
-      "url": "/src/assets/Moby-logo.webp",
+      "url": "Moby-logo.webp",
       "keywords": [
         {
           "$ref": "#/definitions/Architecture"
@@ -147,7 +147,7 @@
     },
     "Github": {
       "title": "Github",
-      "url": "/src/assets/Octocat.png",
+      "url": "Octocat.png",
       "keywords": [
         {
           "$ref": "#/definitions/VersionControl"
@@ -156,7 +156,7 @@
     },
     "AWSCodeCommit": {
       "title": "AWS Code Commit",
-      "url": "/src/assets/aws-codecommit.svg",
+      "url": "aws-codecommit.svg",
       "keywords": [
         {
           "$ref": "#/definitions/VersionControl"
@@ -165,11 +165,11 @@
     },
     "AmazonWebServices": {
       "title": "Amazon Web Services",
-      "url": "/src/assets/Amazon_Web_Services_Logo.svg"
+      "url": "Amazon_Web_Services_Logo.svg"
     },
     "AWSLambda": {
       "title": "AWS Lambda",
-      "url": "/src/assets/aws-lambda-logo.png",
+      "url": "aws-lambda-logo.png",
       "keywords": [
         {
           "$ref": "#/definitions/MicroServices"
@@ -181,7 +181,7 @@
     },
     "AWSAPIGateway": {
       "title": "AWS API Gateway",
-      "url": "/src/assets/aws-api-gateway.svg",
+      "url": "aws-api-gateway.svg",
       "keywords": [
         {
           "$ref": "#/definitions/RestAPI"
@@ -190,7 +190,7 @@
     },
     "AWSCloudWatch": {
       "title": "AWS Cloud Watch",
-      "url": "/src/assets/aws-cloudwatch-logo-png-transparent.png",
+      "url": "aws-cloudwatch-logo-png-transparent.png",
       "keywords": [
         {
           "$ref": "#/definitions/DevOps"
@@ -199,7 +199,7 @@
     },
     "AWSS3": {
       "title": "AWS S3",
-      "url": "/src/assets/Amazon-S3-Logo.svg.png",
+      "url": "Amazon-S3-Logo.svg.png",
       "keywords": [
         {
           "$ref": "#/definitions/Storage"
@@ -208,7 +208,7 @@
     },
     "AWSCodePipeline": {
       "title": "AWS Code Pipeline",
-      "url": "/src/assets/aws-codepipeline.svg",
+      "url": "aws-codepipeline.svg",
       "keywords": [
         {
           "$ref": "#/definitions/Architecture"
@@ -217,7 +217,7 @@
     },
     "AWSDynamoDB": {
       "title": "AWS DynamoDB",
-      "url": "/src/assets/aws-dynamodb-logo-png-transparent.png",
+      "url": "aws-dynamodb-logo-png-transparent.png",
       "keywords": [
         {
           "$ref": "#/definitions/Storage"
@@ -229,7 +229,7 @@
     },
     "PostgresQL": {
       "title": "PostgresQL",
-      "url": "/src/assets/Postgresql_elephant.svg",
+      "url": "Postgresql_elephant.svg",
       "keywords": [
         {
           "$ref": "#/definitions/Storage"
@@ -241,7 +241,7 @@
     },
     "Jest": {
       "title": "Jest",
-      "url": "/src/assets/jest-logo.png",
+      "url": "jest-logo.png",
       "keywords": [
         {
           "$ref": "#/definitions/TDD"
@@ -253,7 +253,7 @@
     },
     "ReactTestingLibrary": {
       "title": "React Testing Library",
-      "url": "/src/assets/octopus-128x128.png",
+      "url": "octopus-128x128.png",
       "keywords": [
         {
           "$ref": "#/definitions/TDD"
@@ -268,7 +268,7 @@
     },
     "Cypress": {
       "title": "Cypress",
-      "url": "/src/assets/Cypress-logo.webp",
+      "url": "Cypress-logo.webp",
       "keywords": [
         {
           "$ref": "#/definitions/TDD"
@@ -283,7 +283,7 @@
     },
     "Storybook": {
       "title": "Storybook",
-      "url": "/src/assets/371510.svg",
+      "url": "371510.svg",
       "keywords": [
         {
           "$ref": "#/definitions/TDD"
@@ -298,7 +298,7 @@
     },
     "Cucumber": {
       "title": "Cucumber",
-      "url": "/src/assets/cucumber-open-icon.svg",
+      "url": "cucumber-open-icon.svg",
       "keywords": [
         {
           "$ref": "#/definitions/BDD"
@@ -313,7 +313,7 @@
     },
     "Mocha": {
       "title": "Mocha",
-      "url": "/src/assets/mocha.svg",
+      "url": "mocha.svg",
       "keywords": [
         {
           "$ref": "#/definitions/TDD"
@@ -333,7 +333,7 @@
       "I always try to keep the code clean and reusable."
     ],
     "image": {
-      "url": "/src/assets/cv-photo.jpeg"
+      "url": "cv-photo.jpeg"
     },
     "links": [
       {
@@ -609,5 +609,8 @@
         ]
       }
     ]
+  },
+  "projects": {
+    
   }
 }
