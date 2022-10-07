@@ -7,7 +7,9 @@ import { parseDate, parseDescription } from "./utils";
 const BlockContainer = styled.div`
   padding: 0px 0px 20px;
   margin: 0 20px;
-  
+  @media print {
+    margin: 0;
+  }
 
 `;
 const ExperienceContainerBorder = styled.div`
@@ -42,6 +44,7 @@ const ExperienceContainerBorder = styled.div`
 const ExperienceContainer = styled.div`
   
   position: relative;
+
 `;
 
 const ExperienceContent = styled.div`
@@ -58,6 +61,10 @@ const ExperienceContent = styled.div`
   ${isMobile && `
     padding: 0;
   `}
+
+  @media print {
+    margin-top: 5px;
+  }
 
 `;
 
@@ -111,6 +118,9 @@ const KeyWordsContainer = styled.div`
   ${isMobile && `
     font-size: 14px;
   `}
+  @media print {
+    display: none;
+  }
 `;
 
 const Keyword = styled.p`
@@ -190,3 +200,4 @@ export default ({ experiences, path }) => {
 
   </BlockContainer >
 };
+// added a comment 

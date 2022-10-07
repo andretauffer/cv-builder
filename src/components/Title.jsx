@@ -28,6 +28,8 @@ const Main = styled(Title)`
     font-size: 24px;
     padding: 5px 0;
   }
+  @media print {
+  }
 `;
 
 const Subtitle = styled(Title)`
@@ -46,6 +48,8 @@ const Subtitle = styled(Title)`
     font-size: 14px;
     padding: 0;
   }
+  @media print {
+  }
 `;
 
 const Technologies = styled(Title)`
@@ -54,7 +58,12 @@ const Technologies = styled(Title)`
   margin: 20px 0;
   ${isMobile && `
     font-size: 16px;
-  `}
+    `}
+  @media print {
+    font-size: 16px;
+    color: black;
+    margin: 10px 0;
+  }
 `;
 const Experience = styled(Title)``;
 

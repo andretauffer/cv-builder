@@ -2,6 +2,7 @@
   "definitions": {
     "RestAPI": "RESTful API",
     "MobProgramming": "Mob Programming",
+    "PairProgramming": "Pair Programming",
     "VersionControl": "VersionControl",
     "MicroServices": "MicroServices",
     "Storage": "Storage",
@@ -22,6 +23,16 @@
     "Backend": "Backend",
     "e-commerce": "e-commerce",
     "BDD": "BDD",
+    "ABTesting": "A/B Testing",
+    "Optimize": {
+      "title": "Optimize",
+      "url": "google-optimize.svg",
+      "keywords": [
+        {
+          "$ref": "#/definitions/ABTesting"
+        }
+      ]
+    },
     "ReactJS": {
       "title": "ReactJS",
       "url": "React-icon.svg",
@@ -420,6 +431,9 @@
       },
       {
         "$ref": "#/definitions/Mocha"
+      },
+      {
+        "$ref": "#/definitions/Optimize"
       }
     ]
   },
@@ -427,7 +441,7 @@
     "title": "Work experiences",
     "assignments": [
       {
-        "title": "DevOps Engineer",
+        "title": "FullStack Javascript Developer",
         "institution": {
           "logo": "",
           "name": "IoT Communications AB",
@@ -502,9 +516,21 @@
         },
         "description": "Was brought in to start a new e-commerce portal with an in-house team. The months worked were the initial structuring of this process, picking frameworks and talking to the current e-commerce maintainers, while also learning how to maintain and improve on the existing portal.",
         "keywords": [
-          "consultant",
-          "FullStack",
-          "e-commerce"
+          {
+            "$ref": "#/definitions/Fullstack"
+          },
+          {
+            "$ref": "#/definitions/e-commerce"
+          },
+          {
+            "$ref": "#/definitions/Consultant"
+          },
+          {
+            "$ref": "#/definitions/Frontend"
+          },
+          {
+            "$ref": "#/definitions/Optimize/title"
+          }
         ]
       },
       {
@@ -571,8 +597,14 @@
           "from": "01 April 2019",
           "to": "31 July 2019"
         },
-        "description": "Perform as a Full Stack Javascript engineer to develop and maintain the provisioning systems for the company's services. More specifically develop and maintain a RESTful API and a developer portal that consumes the APIs as well. The role includes but is not limited to the full spectrum of tools used for developing those services, from data structuring in the database, to prototyping and building a responsive UI.",
+        "description": "The education with salt focused on deepening my knowledge in JavaScript for full stack development. During the course I was introduced to several of the latest frameworks for full stack development and the Agile methodologies. Most of the work was done in mobs or pairs, which boosts knowledge and productivity.",
         "keywords": [
+          {
+            "$ref": "#/definitions/MobProgramming"
+          },
+          {
+            "$ref": "#/definitions/PairProgramming"
+          },
           {
             "$ref": "#/definitions/Frontend"
           },
@@ -611,6 +643,30 @@
     ]
   },
   "projects": {
-    
+    "title": "Live side projects",
+    "projects": [
+      {
+        "title": "Artworks portal",
+        "description": "A portal to organize and display the production of my hobby.",
+        "url": "https://andregirao.com/",
+        "image": "warehouse-icon.png"
+      },
+      {
+        "title": "Brain dots",
+        "description": "A quick project to test some animation concepts",
+        "url": "https://andretauffer.github.io/brain_dots/",
+        "image": "brain.svg"
+      },
+      {
+        "title": "Git Library",
+        "description": "A side project to play around with the GitHub API.",
+        "url": "https://git-library.herokuapp.com/",
+        "image": "cat.svg"
+      }
+    ]
+  },
+  "interactiveVersionUrl": {
+    "description": "Check out the interactive version of my CV",
+    "url": "https://developer.andregirao.com/"
   }
 }

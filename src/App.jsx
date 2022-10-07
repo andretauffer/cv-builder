@@ -9,6 +9,7 @@ import content from "./content2.json";
 import { ContentContainer } from "./components/StyledComponents";
 import Technologies from "./components/Technologies";
 import Experiences from "./components/Experiences";
+import Projects from "./components/Projects"
 import { Resolver } from "@stoplight/json-ref-resolver";
 
 import { initialState, Context, reducer } from "./Context"
@@ -25,12 +26,14 @@ const ViewContainer = styled.div`
   background-color: white;
   width: 100vw;
   padding: 40px 0;
-  @media print {
-    padding: 0;
-  }
   ${isMobile && `
     padding: 0;
   `}
+  @media print {
+    padding: 0;
+    width: 100%;
+    margin: 0 auto;
+  }
 
 `;
 
@@ -49,12 +52,13 @@ const ActionIcons = styled.div`
   }
 `;
 
-const Image = styled.div`
+const ProfileImage = styled.div`
   background-image: ${props => `url(${props.url})`};
   background-repeat: no-repeat;
   background-size: 200px 200px;
   width: 200px;
-  height: 200px;
+  height: auto;
+  aspect-ratio: 1/1;
   border-radius: 20px;
   margin: 20px;
   min-width: 200px;
@@ -62,17 +66,19 @@ const Image = styled.div`
     order: 1;
     background-size: 100% auto;
     width: calc(100% - 40px);
-    height: 300px;
+    /* height: 300px; */
     /* object-fit: cover */
   }
   ${isMobile && `
       background-size: 100% auto;
       background-position: 0;
       width: 100px;
-      height: 100px;
+      // height: 100px;
       min-width: auto;
   `} 
-
+  @media print {
+    margin: 0 auto;
+  }
 `;
 
 
@@ -109,6 +115,9 @@ const LinksContainer = styled.div`
     order: 5;
     width: auto;
   }
+  @media print {
+    margin: 0 auto;
+  }
 `;
 
 const DescriptionContainer = styled.div`
@@ -142,6 +151,14 @@ const DescriptionContainer = styled.div`
     padding: 0;
     margin: 0;
   }
+  @media print {
+    width: 60%;
+    background-color: transparent;
+    color: black;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+  }
 `;
 
 const Description = styled.p`
@@ -154,6 +171,56 @@ const Description = styled.p`
       margin: 5px 20px;
       font-size: 14px;
   `}
+`;
+
+const QRCodeContainer = styled.div`
+  width: 90vw;
+  margin: 10px auto;
+  border: 10px solid var(--celadon);
+  /* border-radius: 40px; */
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 20px;
+  opacity: 0;
+  @media print {
+    opacity: 1;
+  }
+
+`;
+
+const UrlContainer = styled.div`
+  border: 10px solid var(--celadon);
+  background-color: var(--celadon);
+  padding: 10px 20px;
+  height: fit-content;
+  border-radius: 40px;
+  margin: auto;
+`;
+
+const UrlDescription = styled.p`
+  color: var(--independence);
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0;
+  margin: 10px;
+`;
+const Url = styled.p`
+  color: var(--independence);
+  background: white;
+  padding: 10px;
+  border-radius: 40px;
+  font-size: 16px;
+  width: fit-content;
+  margin: 0 auto;
+`;
+
+const QRCode = styled.div`
+  width: 200px;
+  height: 200px;
+  background-image: url(${props => props.qrCode});
+  background-repeat: no-repeat;
+  background-size: 100%;
+
 `;
 
 
@@ -173,7 +240,7 @@ const contentBox = ({ content, type, path }) => {
     "technology-title": (text) => <Title className="technology-title" sectionType={"technologies"} >{text}</Title>,
     "content-box": (content) => contentBox({ content }),
     "content-boxes": (boxes) => boxes.map(content => contentBox({ content })),
-    image: ({ url }) => <Image url={url} />,
+    image: ({ url }) => <ProfileImage url={url} />,
     technologies: (technologies) => <Technologies {...{ technologies }} />,
     experiences: (experiences) => <Experiences {...{ experiences, path }} />,
     education: (education) => <Experiences {...{ education, path }} />,
@@ -184,7 +251,7 @@ const contentBox = ({ content, type, path }) => {
 };
 
 const sectionParser = ({ section, type }) => {
-  const { title, subtitle, description, image, links, technologies, assignments, courses } = section;
+  const { title, subtitle, description, image, links, technologies, assignments, courses, projects } = section;
   const sectionTypes = {
     intro: () => <Section key={"intro" + title}>
       <ContentContainer>
@@ -194,19 +261,9 @@ const sectionParser = ({ section, type }) => {
         {contentBox({ content: description, type: "description" })}
         {contentBox({ content: image, type: "image" })}
         {contentBox({ content: links, type: "links" })}
-        {/* <ContentContainer direction="column nowrap">
-
-          {contentBox({ content: title, type: "title" })}
-          {contentBox({ content: subtitle, type: "subtitle" })}
-          {contentBox({ content: description, type: "description" })}
-        </ContentContainer>
-        <ContentContainer direction="column nowrap">
-          {contentBox({ content: image, type: "image" })}
-          {contentBox({ content: links, type: "links" })}
-        </ContentContainer> */}
       </ContentContainer>
     </Section>,
-    technologies: () => <><Section key={type + title} backgroundColor={"#f5f2ed"} stick={true}>
+    technologies: () => <><Section key={type + title} backgroundColor={"#f5f2ed"} stick={true} sectionType={"technologies"}>
       {contentBox({ content: title, type: "technology-title" })}
       {contentBox({ content: technologies, type: "technologies" })}
     </Section>
@@ -218,6 +275,10 @@ const sectionParser = ({ section, type }) => {
     education: () => <Section key={type + title}>
       {contentBox({ content: title, type: "technology-title" })}
       {contentBox({ content: courses, type: "experiences", path: type + "/" })}
+    </Section>,
+    projects: () => <Section key={type + title} {...{ sectionType: type }}>
+      {contentBox({ content: title, type: "technology-title" })}
+      <Projects {...{ projects: projects }} />
     </Section>
   };
 
@@ -231,6 +292,10 @@ const FirstColumn = styled.div`
   @media only screen and (max-width: ${breakPoint1}) {
     width: auto;
   }
+  @media print {
+    width: 100%;
+  
+  }
   `;
 
 const SecondColumn = styled.div`
@@ -240,9 +305,13 @@ const SecondColumn = styled.div`
   @media only screen and (max-width: ${breakPoint1}) {
     width: auto;
   }
+  @media print {
+    width: 100%;
+  }
   `;
 
-const Layout = ({ layoutType, sections }) => {
+
+const Layout = ({ layoutType, sections, qrCode }) => {
 
   const layoutDecider = {
     basic: () => <Page pageLayout={"basic"}>
@@ -254,6 +323,18 @@ const Layout = ({ layoutType, sections }) => {
         {sections.experiences && sectionParser({ section: sections.experiences, type: "experiences" })}
         {sections.education && sectionParser({ section: sections.education, type: "education" })}
       </SecondColumn>
+      {sections.projects && sectionParser({ section: sections.projects, type: "projects" })}
+      <QRCodeContainer>
+        <UrlContainer>
+          <UrlDescription>
+            {sections.interactiveVersionUrl.description}
+          </UrlDescription>
+          <Url>
+            {sections.interactiveVersionUrl.url}
+          </Url>
+        </UrlContainer>
+        <QRCode {...{ qrCode }} />
+      </QRCodeContainer>
     </Page>,
     default: () => <Page>
       {Object.keys(sections).map(section =>
@@ -270,12 +351,26 @@ const Layout = ({ layoutType, sections }) => {
 function App() {
 
   const [resolvedContent, setContent] = useState(null);
+  const [qrCode, setQrCode] = useState("")
   const [state, dispatch] = useReducer(reducer, initialState);
-
 
   useEffect(() => {
     resolver.resolve(content).then(resolved => setContent(resolved.result))
   }, []);
+
+  useEffect(() => {
+    if (resolvedContent && resolvedContent.interactiveVersionUrl && resolvedContent.interactiveVersionUrl.url) {
+
+      fetch("https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + resolvedContent.interactiveVersionUrl.url)
+        .then(data => data.blob())
+        .then(resp => {
+          const urlCreator = window.URL || window.webkitURL;
+          const imageUrl = urlCreator.createObjectURL(resp);
+          setQrCode(imageUrl)
+          console.log("resp", imageUrl)
+        });
+    }
+  }, [resolvedContent])
 
   const onPrint = () => {
     window.print();
@@ -291,7 +386,7 @@ function App() {
 
       {resolvedContent ?
         <ViewContainer className="view-container">
-          <Layout sections={resolvedContent} layoutType={"basic"} />
+          <Layout sections={resolvedContent} layoutType={"basic"} qrCode={qrCode} />
         </ViewContainer>
         : <></>}
     </Context.Provider>

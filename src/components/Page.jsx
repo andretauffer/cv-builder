@@ -6,13 +6,14 @@ const Page = styled.div`
   /* background-color: var(--section-background); */
   flex-grow: 1;
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
   padding: 20px;
 
   ${props => props.pageLayout === "basic" && `
     display: flex;
     flex-flow: row wrap;
     @media only screen and (min-width: ${breakPoint1}) {
+    width: 80%;
     padding: 0;
   }
   `}
@@ -20,6 +21,11 @@ const Page = styled.div`
     width: 100%;
     padding: 0;
   `}
+
+  @media print {
+    width: 100%;
+    padding: 0;
+  }
 `;
 
 export default ({ children, pageLayout }) => {

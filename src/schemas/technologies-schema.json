@@ -1,0 +1,45 @@
+{
+  "title": "Technologies and techniques",
+  "description": "This projects section describes live projects and has links to those.",
+  "type": "object",
+  "properties": {
+    "title": {
+      "description": "A title for the section.",
+      "default": "Projects",
+      "type": "string"
+    },
+    "projects": {
+      "description": "Array of projects to be displayed. If the array has zero items, nothing will be displayed.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Project definition",
+        "required": [
+          "url"
+        ],
+        "properties": {
+          "title": {
+            "description": "Project's title",
+            "type": "string"
+          },
+          "description": {
+            "title": "The project's description",
+            "type": "string"
+          },
+          "url": {
+            "description": "Link to a representation of the project.",
+            "type": "string"
+          },
+          "image": {
+            "description": "Image to be represent project.",
+            "type": "string"
+          },
+          "useOGTags": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    }
+  }
+}

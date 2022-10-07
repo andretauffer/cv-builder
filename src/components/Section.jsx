@@ -17,11 +17,28 @@ const Section = styled.section`
     background-color: transparent;
     // background-color: var(--lavender-blush);
   `}
+  ${props => props.sectionType === "projects" && `
+      box-shadow: none;
+      // margin-top: 30vh;
+      @media print {
+        display: none;
+      }
+  `}
+  @media print {
+    width: 100vw;
+    box-shadow: none;
+    margin: 0 auto;
+    padding: 20px;
+    ${props => props.sectionType === "technologies" && `
+      // width: 300px;
+    `}
+    /* border-top: 5px solid var(--light-sky-blue); */
+  }
 `;
 
-export default ({ children }) => {
+export default ({ children, sectionType }) => {
 
   const { dispatch } = useContext(Context);
 
-  return <Section onClick={() => dispatch({ type: "UNSELECT" })}>{children}</Section>
+  return <Section onClick={() => dispatch({ type: "UNSELECT" })} {...{ sectionType }}>{children}</Section>
 };

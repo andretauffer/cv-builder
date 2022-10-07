@@ -1,0 +1,10 @@
+{
+  "title": "The content object",
+  "description": "Contains the content to be consumed by the App",
+  "type": "object",
+  "properties": {
+    "projects": {
+      "$ref": "src/schemas/projects-schema.json"
+    }
+  }
+}

@@ -20,5 +20,10 @@ export const ContentContainer = styled.div`
     flex-flow: row wrap;
     justify-content: flex-start;
   `}
+  @media print {
+    width: 100%;
+    max-height: 500px;
+  
+  }
 
 `;

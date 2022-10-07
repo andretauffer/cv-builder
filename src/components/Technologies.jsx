@@ -30,40 +30,73 @@ const BlockContainer = styled.div`
         .techs-container{
           height: 80px;
           top: 0;
-          width: calc(80% - 60px);
+          width: 80%;
+          // width: calc(80% - 60px);
           border: 10px solid var(--celadon);
 
-          // padding-top: 220px;
-          // background-color: var(--lavender-blush);
           border-radius: 0;
           position: fixed;
         }
         .tech-box {
           flex-grow: 1;
           width: auto;
+          margin: 2px;
         }
         `}
     }
+  }
+  @media print {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    /* justify-content: ; */
   }
 `;
 
 const TechContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
+  color: black;
   justify-content: flex-start;
-  width: calc(100%/12);
+  width: clamp(calc(100%/12), 8%, calc(100%/8));
   text-align: center;
-  margin: 20px 0;
+  /* margin: 20px auto; */
   transition: 1s ease all;
+  margin: clamp(5px, 5%, 15px);
+  margin-top: 10px;
   @media only screen and (min-width: ${breakPoint1}) {
     width: clamp(40px, 5%, 60px);
-    margin: clamp(5px, 2%, 20px);
+    margin: clamp(5px, 5%, 10px);
+    margin-top: 10px;
   }
   ${isMobile && `
     width: clamp(40px, 5%, 60px);
     margin: clamp(5px, 2%, 20px);
   
   `}
+
+  @media print {
+    width: fit-content;
+    max-height: 60px;
+    margin:  0 20px ;
+    font-size: 10px;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+  }
+`;
+
+const TechTitle = styled.p`
+  white-space: nowrap;
+  margin: 0;
+  text-align: start;
+  text-indent: 0;
+  align-self: flex-start;
+  padding: 0;
+  text-indent: 5px;
+  display: none;
+  @media print {
+    display: block;
+  }
 `;
 
 const Logo = styled.div`
@@ -74,6 +107,14 @@ const Logo = styled.div`
   background-position: center;
   width: 100%;
   min-height: 60px;
+  @media print {
+    height: 100%;
+    max-height: 20px;
+    width: 20px;
+    min-height: auto;
+    aspect-ratio: 1/1;
+    
+  }
 `;
 
 const Loupe = styled.div`
@@ -132,9 +173,10 @@ const StyledInput = styled.input`
 const TechsContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  /* justify-content: space-around; */
+  justify-content: flex-start;
   align-items: center;
-  padding: 20px;
+  /* padding: 20px; */
   border-radius: 20px;
   background-color: white;
   height: 280px;
@@ -149,6 +191,14 @@ const TechsContainer = styled.div`
     height: auto;
   
   `}
+  @media print {
+    height: auto;
+    margin: 0 20px;
+    flex-flow: column wrap;
+    max-height: 120px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
 `;
 
 export default ({ technologies, ...more }) => {
@@ -210,6 +260,9 @@ export default ({ technologies, ...more }) => {
           <Tooltip content={title} >
             <Logo url={url}></Logo>
           </Tooltip>
+          <TechTitle>
+            {title}
+          </TechTitle>
         </TechContainer>)}
     </TechsContainer>
   </BlockContainer >;

@@ -6,7 +6,8 @@ export const Context = React.createContext();
 
 export const initialState = {
   selected: undefined,
-  keywords: []
+  keywords: [],
+  mode: "basic"
 }
 
 export const reducer = (state, action) => {
@@ -20,6 +21,10 @@ export const reducer = (state, action) => {
       keywords: action.keywords,
     }),
     "UNSELECT": () => initialState,
+    "SET_MODE": () => ({
+      ...state,
+      mode: action.mode
+    }),
     "default": () => ({ ...state })
   };
 
