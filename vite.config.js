@@ -5,6 +5,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
 	plugins: [react()],
 	assetsInclude: ["./assets/cv-photo.jpeg"],
+	base: "/cv-builder",
 	test: {
 		globals: true,
 		environment: "jsdom",
