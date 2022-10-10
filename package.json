@@ -1,6 +1,6 @@
 {
   "name": "cv",
-  "homepage": ".",
+  "homepage": "https://andretauffer.github.io/cv-builder",
   "private": true,
   "version": "0.0.0",
   "type": "module",
