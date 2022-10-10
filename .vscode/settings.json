@@ -1,0 +1,10 @@
+{
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": "src/schemas/.*",
+        "cmd": "node scripts/compile-types.js"
+      }
+    ]
+  }
+}
