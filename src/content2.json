@@ -346,16 +346,31 @@
     "image": {
       "url": "cv-photo.jpeg"
     },
-    "links": [
-      {
-        "href": "https://github.com/andretauffer",
-        "title": "github"
-      },
-      {
-        "href": "https://www.linkedin.com/in/andr%C3%A9-tauffer-2b01039a/",
-        "title": "linkedIn"
-      }
-    ]
+    "contacts": {
+      "title": "Contacts and links:",
+      "contacts": [
+        {
+          "title": "phone",
+          "contact": "+46 79 469 10 41",
+          "type": "phone number"
+        },
+        {
+          "title": "e-mail",
+          "contact": "contact@andregirao.com",
+          "type": "e-mail"
+        },
+        {
+          "title": "github",
+          "contact": "https://github.com/andretauffer",
+          "type": "link"
+        },
+        {
+          "title": "linkedIn",
+          "contact": "https://www.linkedin.com/in/andr%C3%A9-tauffer-2b01039a/",
+          "type": "link"
+        }
+      ]
+    }
   },
   "technologies": {
     "title": "Languages and Frameworks",

@@ -23,7 +23,7 @@ export const ContentContainer = styled.div`
   @media print {
     width: 100%;
     max-height: 500px;
-  
+    justify-content: flex-start;
   }
 
 `;

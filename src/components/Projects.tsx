@@ -50,6 +50,7 @@ const ProjectCard = styled.div`
   padding: 5px;
   background-color: white;
   margin: 40px 20px;
+  height: fit-content;
   ${isMobile && `
     max-width: 90vw;
     margin: 20px auto;
@@ -100,6 +101,9 @@ const ProjectImage = styled.div<ImageProps>`
   object-fit: cover;
   height: 100%;
   aspect-ratio: 1/1;
+  display: block;
+  width: 30%;
+  margin: auto 0;
 `;
 
 const AppearingCard = ({ children }) => {

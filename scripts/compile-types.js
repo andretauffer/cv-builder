@@ -5,5 +5,8 @@ import fs from "fs";
 compileFromFile('src/schemas/projects-schema.json')
   .then(ts => fs.writeFileSync('src/types/projects.d.ts', ts))
 
+compileFromFile('src/schemas/contacts-schema.json')
+  .then(ts => fs.writeFileSync('src/types/contacts.d.ts', ts))
+
 compileFromFile('src/schemas/content-schema.json')
   .then(ts => fs.writeFileSync('src/types/content.d.ts', ts))

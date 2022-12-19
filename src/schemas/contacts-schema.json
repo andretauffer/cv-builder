@@ -1,0 +1,38 @@
+{
+  "title": "Contacts",
+  "type": "object",
+  "description": "The list of contacts to reach the professional.",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "contacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "title": "contact object",
+        "required": [
+          "type",
+          "title"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "contact": {
+            "type": "string",
+            "description": "A text representing the contact destination. Could be a phone number, an email, a link to a social media profile, etc."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "link",
+              "phone number",
+              "e-mail"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -15,7 +15,7 @@ export interface TheContentObject {
   [k: string]: unknown;
 }
 /**
- * This projects section describes live projects and has links to those.
+ * The projects section describes live projects and has links to those.
  */
 export interface Projects {
   /**

@@ -4,6 +4,7 @@ import { useContext } from "react";
 
 const Section = styled.section`
   display: flex;
+  position: relative;
   flex-flow: column nowrap;
   box-shadow: -3px 3px 10px 0px #0000002e;
   /* margin: 10px 0; */
@@ -31,6 +32,7 @@ const Section = styled.section`
     padding: 20px;
     ${props => props.sectionType === "technologies" && `
       // width: 300px;
+      padding-top: 0;
     `}
     /* border-top: 5px solid var(--light-sky-blue); */
   }

@@ -1,6 +1,6 @@
 {
   "title": "Projects",
-  "description": "This projects section describes live projects and has links to those.",
+  "description": "The projects section describes live projects and has links to those.",
   "type": "object",
   "properties": {
     "title": {

@@ -17,6 +17,7 @@ import { initialState, Context, reducer } from "./Context"
 import { useEffect, useState, useReducer, useRef } from "react";
 import { breakPoint1, breakPoint2 } from "./ViewConfigurations";
 import { isMobile } from "react-device-detect";
+import ContactsCard from "./components/ContactsCard";
 
 const resolver = new Resolver();
 
@@ -35,21 +36,6 @@ const ViewContainer = styled.div`
     margin: 0 auto;
   }
 
-`;
-
-const ActionIcons = styled.div`
-  background-image: ${props => `url(${props.url})`};
-  background-repeat: no-repeat;
-  background-size: 50px 50px;
-  width: 50px;
-  height: 50px;
-  position: sticky;
-  float: right;
-  top: 50px;
-  right: 50px;
-  @media print {
-    display:none;
-  }
 `;
 
 const ProfileImage = styled.div`
@@ -220,9 +206,7 @@ const QRCode = styled.div`
   background-image: url(${props => props.qrCode});
   background-repeat: no-repeat;
   background-size: 100%;
-
 `;
-
 
 
 const contentBox = ({ content, type, path }) => {
@@ -235,6 +219,7 @@ const contentBox = ({ content, type, path }) => {
         <Link href={href}>{title}</Link>
       )}
     </LinksContainer>,
+    contacts: (contacts) => <ContactsCard {...{ ...contacts }} />,
     title: (text) => <Title sectionType={type} >{text}</Title>,
     subtitle: (text) => <Title sectionType={type} >{text}</Title>,
     "technology-title": (text) => <Title className="technology-title" sectionType={"technologies"} >{text}</Title>,
@@ -251,7 +236,7 @@ const contentBox = ({ content, type, path }) => {
 };
 
 const sectionParser = ({ section, type }) => {
-  const { title, subtitle, description, image, links, technologies, assignments, courses, projects } = section;
+  const { title, subtitle, description, image, contacts, technologies, assignments, courses, projects } = section;
   const sectionTypes = {
     intro: () => <Section key={"intro" + title}>
       <ContentContainer>
@@ -260,7 +245,7 @@ const sectionParser = ({ section, type }) => {
         {contentBox({ content: subtitle, type: "subtitle" })}
         {contentBox({ content: description, type: "description" })}
         {contentBox({ content: image, type: "image" })}
-        {contentBox({ content: links, type: "links" })}
+        {contentBox({ content: contacts, type: "contacts" })}
       </ContentContainer>
     </Section>,
     technologies: () => <><Section key={type + title} backgroundColor={"#f5f2ed"} stick={true} sectionType={"technologies"}>

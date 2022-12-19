@@ -193,11 +193,12 @@ const TechsContainer = styled.div`
   `}
   @media print {
     height: auto;
-    margin: 0 20px;
+    margin: 0 auto 0 20px;
     flex-flow: column wrap;
-    max-height: 120px;
+    max-height: 220px;
     justify-content: flex-start;
     align-items: flex-start;
+    width: 450px;
   }
 `;
 
