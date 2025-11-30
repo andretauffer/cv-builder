@@ -2,7 +2,7 @@ import { useState, useContext, useRef, useEffect } from "react";
 import styled from "styled-components";
 import Tooltip from "./Tooltip";
 
-import { Context } from "../Context"
+import { Context } from "../Context";
 import { filterTechnologies } from "./utils";
 import { breakPoint1 } from "../ViewConfigurations";
 import { isMobile } from "react-device-detect";
@@ -10,41 +10,10 @@ import { isMobile } from "react-device-detect";
 const BlockContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around ;
+  justify-content: space-around;
   margin: 20px;
   border-radius: 20px;
   background-color: transparent;
-  position: relative;
-  position: sticky;
-  top: -200px;;
-  z-index: 10;
-  &.is-pinned{
-    @media only screen and (max-width: ${breakPoint1}) {
-
-      ${!isMobile && `
-        
-        background-color: red;
-        .loupe{
-          display: none;
-        }
-        .techs-container{
-          height: 80px;
-          top: 0;
-          width: 80%;
-          // width: calc(80% - 60px);
-          border: 10px solid var(--celadon);
-
-          border-radius: 0;
-          position: fixed;
-        }
-        .tech-box {
-          flex-grow: 1;
-          width: auto;
-          margin: 2px;
-        }
-        `}
-    }
-  }
   @media print {
     height: auto;
     margin: 0;
@@ -58,7 +27,7 @@ const TechContainer = styled.div`
   flex-flow: column nowrap;
   color: black;
   justify-content: flex-start;
-  width: clamp(calc(100%/12), 8%, calc(100%/8));
+  width: clamp(calc(100% / 12), 8%, calc(100% / 8));
   text-align: center;
   /* margin: 20px auto; */
   transition: 1s ease all;
@@ -69,7 +38,8 @@ const TechContainer = styled.div`
     margin: clamp(5px, 5%, 10px);
     margin-top: 10px;
   }
-  ${isMobile && `
+  ${isMobile &&
+  `
     width: clamp(40px, 5%, 60px);
     margin: clamp(5px, 2%, 20px);
   
@@ -77,11 +47,13 @@ const TechContainer = styled.div`
 
   @media print {
     width: fit-content;
-    max-height: 60px;
-    margin:  0 20px ;
+    margin: 5px;
+    /* height: fit-content; */
+    /* max-height: 60px;
+    margin: 0 20px;
     font-size: 10px;
     flex-flow: row nowrap;
-    justify-content: flex-start;
+    justify-content: flex-start; */
   }
 `;
 
@@ -96,11 +68,12 @@ const TechTitle = styled.p`
   display: none;
   @media print {
     display: block;
+    text-indent: 0;
   }
 `;
 
 const Logo = styled.div`
-  background-image: ${props => `url(${props.url})`};
+  background-image: ${(props) => `url(${props.url})`};
   background-repeat: no-repeat;
   object-fit: cover;
   background-size: contain;
@@ -108,163 +81,73 @@ const Logo = styled.div`
   width: 100%;
   min-height: 60px;
   @media print {
-    height: 100%;
-    max-height: 20px;
-    width: 20px;
-    min-height: auto;
-    aspect-ratio: 1/1;
-    
-  }
-`;
-
-const Loupe = styled.div`
-  background-image: url("Magnifying_glass_icon.svg");
-  background-repeat: no-repeat;
-  background-size: 20px 20px;
-  background-color: white;
-  background-position: 10px center;
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  z-index: 1;
-  top: -20px;
-  left: 0;
-  border-radius: 40px ;
-  box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
-  -webkit-box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
-  
-  transition: 1s ease all, background-color 0.2s ease;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-
-  :active {
-    background-color: #c8e8c8;
-  }
-  
-  ${props => props.open && `
-    width: 300px;
-    background-position: 270px center;
-    background-image: url("OOjs_UI_icon_close-ltr.svg");
-
-  `}
-
-  @media print {
-    display:none;
-  }
-`;
-
-const StyledInput = styled.input`
-  text-indent: 10px;
-  font-size: 16px;
-  color: black;
-  background-color: white;
-  border: none;
-  margin: 0px 10px;
-  width: calc(100% - 50px);
-
-  ${props => !props.show && `
     display: none;
-  `}
-
+    min-height: 0;
+  }
 `;
 
 const TechsContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
-  /* justify-content: space-around; */
   justify-content: flex-start;
   align-items: center;
-  /* padding: 20px; */
   border-radius: 20px;
   background-color: white;
   height: 280px;
   overflow: auto;
-  position: sticky;
   width: 100%;
-  transition:1s all ease;
+  transition: 1s all ease;
   @media only screen and (min-width: ${breakPoint1}) {
     height: auto;
   }
-  ${isMobile && `
+  ${isMobile &&
+  `
     height: auto;
   
   `}
   @media print {
     height: auto;
-    margin: 0 auto 0 20px;
-    flex-flow: column wrap;
+    margin: 0 auto 0 0;
+    flex-flow: column nowrap;
     max-height: 220px;
+    max-width: 100%;
+    gap: 0px;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 450px;
+    border: 1px solid grey;
+    padding: 20px;
+    position: absolute;
+    max-width: fit-content;
+    right: 20px;
+    top: 70px;
+    max-height: fit-content;
   }
 `;
 
-export default ({ technologies, ...more }) => {
-  const [openFilter, setOpenFilter] = useState(false);
-  const [filter, setFilter] = useState("");
-
+export default ({ technologies }) => {
   const container = useRef(null);
 
-  const { keywords, ...rest } = useContext(Context);
+  const { keywords } = useContext(Context);
 
-  let options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 1.0
-  }
-
-  useEffect(() => {
-
-    const observer = new IntersectionObserver(
-      ([e]) => {
-        e.target.classList.toggle("is-pinned", e.intersectionRatio < 1);
-      },
-      options
-    );
-
-    if (container.current) {
-      observer.observe(container.current);
-    }
-
-    return () => {
-      if (container.current) observer.unobserve(container.current);
-    }
-  },
-    [container, options])
-
-  return <BlockContainer ref={container}>
-    <Loupe
-      className="loupe"
-      onClick={() => {
-        setOpenFilter(!openFilter)
-        setFilter("");
-      }} open={openFilter}>
-      {openFilter && <StyledInput
-        show={openFilter}
-        autoFocus={true}
-        onClick={e => {
-          e.preventDefault();
-          e.stopPropagation();
-        }}
-        onChange={e => {
-          e.stopPropagation();
-          setFilter(e.target.value)
-        }} value={filter}></StyledInput>}
-    </Loupe>
-    <TechsContainer className="techs-container">
-
-      {filterTechnologies({ technologies, filter, keywords })
-        .map(({ title, url }) => <TechContainer className="tech-box" key={title} direction="column nowrap" style={{ alignItems: "center" }}>
-          <Tooltip content={title} >
-            <Logo url={url}></Logo>
-          </Tooltip>
-          <TechTitle>
-            {title}
-          </TechTitle>
-        </TechContainer>)}
-    </TechsContainer>
-  </BlockContainer >;
-}
+  return (
+    <BlockContainer ref={container}>
+      <TechsContainer className="techs-container">
+        {filterTechnologies({ technologies, keywords }).map(
+          ({ title, url }) => (
+            <TechContainer
+              className="tech-box"
+              key={title}
+              direction="column nowrap"
+              style={{ alignItems: "center" }}
+            >
+              <Tooltip content={title}>
+                <Logo url={url}></Logo>
+              </Tooltip>
+              <TechTitle>{title}</TechTitle>
+            </TechContainer>
+          )
+        )}
+      </TechsContainer>
+    </BlockContainer>
+  );
+};

@@ -17,7 +17,9 @@
     "Consultant": "Consultant",
     "Fullstack": "Fullstack",
     "Languages": "Languages",
+    "CMS": "Content Management System",
     "Web": "Web",
+    "Mobile": "Mobile",
     "Frontend": "Frontend",
     "Server": "Server",
     "Backend": "Backend",
@@ -42,6 +44,30 @@
         },
         {
           "$ref": "#/definitions/Web"
+        }
+      ]
+    },
+    "ReactNative": {
+      "title": "ReactNative",
+      "url": "React-icon.svg",
+      "keywords": [
+        {
+          "$ref": "#/definitions/Frontend"
+        },
+        {
+          "$ref": "#/definitions/Mobile"
+        }
+      ]
+    },
+    "GraphQL": {
+      "title": "GraphQL",
+      "url": "graphql.svg",
+      "keywords": [
+        {
+          "$ref": "#/definitions/Frontend"
+        },
+        {
+          "$ref": "#/definitions/Mobile"
         }
       ]
     },
@@ -129,6 +155,24 @@
         },
         {
           "$ref": "#/definitions/Languages"
+        }
+      ]
+    },
+    "Parse": {
+      "title": "Parse Platform",
+      "url": "parse.svg",
+      "keywords": [
+        {
+          "$ref": "#/definitions/Database"
+        }
+      ]
+    },
+    "Sanity": {
+      "title": "Sanity",
+      "url": "",
+      "keywords": [
+        {
+          "$ref": "#/definitions/CMS"
         }
       ]
     },
@@ -339,9 +383,9 @@
     "title": "André Girão Tauffer",
     "subtitle": "Full Stack Developer for beautiful apps",
     "description": [
-      "Full Stack Developer with a strong suit in front-end development. User-centered designs, and user tested software, built with unit testing to high coverage.",
+      "Full Stack Developer with a strong suit in front-end development. User-centered designs, and user tested software, built with unit testing aiming to high coverage.",
       "In a team I'm always available to share the challenges and figure out solutions together.",
-      "I always try to keep the code clean and reusable."
+      "I always strive to keep the code clean and reusable."
     ],
     "image": {
       "url": "cv-photo.jpeg"
@@ -351,7 +395,7 @@
       "contacts": [
         {
           "title": "phone",
-          "contact": "+46 79 469 10 41",
+          "contact": "+46 70 469 10 41",
           "type": "phone number"
         },
         {
@@ -362,18 +406,22 @@
         {
           "title": "github",
           "contact": "https://github.com/andretauffer",
-          "type": "link"
+          "type": "link",
+          "logo": "github.svg",
+          "handle": "andretauffer"
         },
         {
           "title": "linkedIn",
           "contact": "https://www.linkedin.com/in/andr%C3%A9-tauffer-2b01039a/",
-          "type": "link"
+          "type": "link",
+          "logo": "linkedin.svg",
+          "handle": "andré-tauffer-2b01039a"
         }
       ]
     }
   },
   "technologies": {
-    "title": "Languages and Frameworks",
+    "title": "Relevant Languages and Frameworks",
     "technologies": [
       {
         "$ref": "#/definitions/JavaScript"
@@ -392,6 +440,12 @@
       },
       {
         "$ref": "#/definitions/ReactJS"
+      },
+      {
+        "$ref": "#/definitions/ReactNative"
+      },
+      {
+        "$ref": "#/definitions/GraphQL"
       },
       {
         "$ref": "#/definitions/Redux"
@@ -449,12 +503,72 @@
       },
       {
         "$ref": "#/definitions/Optimize"
+      },
+      {
+        "$ref": "#/definitions/Parse"
       }
     ]
   },
   "experiences": {
     "title": "Work experiences",
     "assignments": [
+      {
+        "title": "FullStack Software Engineer",
+        "institution": {
+          "logo": "",
+          "name": "Sellpy",
+          "url": "https://iotcomms.io/"
+        },
+        "period": {
+          "from": "23 June 2023",
+          "to": "current"
+        },
+        "description": "Perform as a Full Stack Javascript engineer to develop and maintain both the mobile (React Native) and web (React) platforms used by customers. My day to day is centered around front end feature development and improvement. I have also been responsible for projects that improved the performance of the web and mobile projects updating the logic for data fetching and state management, backend logic and infrastructure. Built and tested components for the design system library. In this job I work closely with designers and product managers to help reaching the best version of each feature. I also ship features in quick iterative cycles that involve A/B testing, monitoring and users feedback. We keep a learning culture and are flexible on picking different tools while considering cost and efficiency.",
+        "keywords": [
+          {
+            "$ref": "#/definitions/ReactNative/title"
+          },
+          {
+            "$ref": "#/definitions/ReactJS/title"
+          },
+          {
+            "$ref": "#/definitions/Redux/title"
+          },
+          {
+            "$ref": "#/definitions/GraphQL/title"
+          },
+          {
+            "$ref": "#/definitions/NodeJS/title"
+          },
+          {
+            "$ref": "#/definitions/PostgresQL/title"
+          },
+          {
+            "$ref": "#/definitions/Storybook/title"
+          },
+          {
+            "$ref": "#/definitions/Sanity/title"
+          },
+          {
+            "$ref": "#/definitions/AWSLambda/title"
+          },
+          {
+            "$ref": "#/definitions/AmazonWebServices/title"
+          },
+          {
+            "$ref": "#/definitions/Fullstack"
+          },
+          {
+            "$ref": "#/definitions/RestAPI"
+          },
+          {
+            "$ref": "#/definitions/TDD"
+          },
+          {
+            "$ref": "#/definitions/Frontend"
+          }
+        ]
+      },
       {
         "title": "FullStack Javascript Developer",
         "institution": {
@@ -464,7 +578,7 @@
         },
         "period": {
           "from": "01 June 2020",
-          "to": "current"
+          "to": "20 June 2023"
         },
         "description": "Perform as a Full Stack Javascript engineer to develop and maintain the provisioning systems for the company's services. More specifically develop and maintain a RESTful API and a developer portal that consumes the APIs as well. The role includes but is not limited to the full spectrum of tools used for developing those services, from data structuring in the database, to prototyping and building a responsive UI.",
         "keywords": [

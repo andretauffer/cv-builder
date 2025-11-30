@@ -10,7 +10,7 @@ const Container = styled.div`
   background-color: var(--celadon);
   padding: 20px;
   border-radius: 20px;
-  width: 160px;
+  width: fit-content;
   ${isMobile && `
     order: 1;
     width: auto;
@@ -23,11 +23,11 @@ const Container = styled.div`
     width: auto;
   }
   @media print {
-    margin: 10px auto;
-    width: 350px;
+    width: fit-content;
     position: absolute;
-    bottom: -200px;
-    right: -50px;
+    /* bottom: -230px; */
+    top: 0;
+    right: 20px;
   }
 `;
 
@@ -59,6 +59,7 @@ const ContactTitle = styled.p`
 const ContactValue = styled.p`
   margin: 10px;
   margin-left: 10px;
+  color: black;
 `;
 
 const Link = styled.a`
@@ -66,19 +67,31 @@ const Link = styled.a`
   font-weight: bold;
   text-decoration: none;
   font-size: 14px;
+  ${({ logo }) => logo && `
+    background-image: url(${logo});
+    object-fit: contain;
+    width: 24px;
+    height: 24px;
+    margin: 10px 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+  `}
 `;
 
+const HandleContainer = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+`;
 
-const contactsResolver = ({ contact, type, title }: ContactObject) => {
+const contactsResolver = ({ contact, type, title, logo, handle }: ContactObject) => {
 
   const resolvers = {
-    link: () => isMobile ?
-      <Link href={contact} target="_blank">{title}</Link>
-      :
-      <ContactContainer>
-        <ContactTitle>{title}: </ContactTitle>
-        <Link href={contact} target="_blank">{contact}</Link>
-      </ContactContainer>,
+    link: () => logo ?
+      <HandleContainer>
+        <Link href={contact} logo={logo} target="_blank" />
+        <ContactValue>{handle}</ContactValue>
+      </HandleContainer> :
+      <Link href={contact} target="_blank">{title}</Link>,
     "phone number": () => isMobile ?
       <Link href={"tel:" + contact}>{contact}</Link>
       :
@@ -110,7 +123,3 @@ export default ({ title = "Contacts", contacts }: Contacts) => {
     {contacts && contacts.map((contact) => contactsResolver(contact))}
   </Container>
 }
-    // {contacts && contacts.map(({ title, contact, type }) => <ContactContainer>
-    //   <ContactTitle>{title}</ContactTitle>
-    //   <ContactValue>{contact}</ContactValue>
-    // </ContactContainer>)}

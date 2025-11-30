@@ -1,8 +1,17 @@
 import { isMobile } from "react-device-detect";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { breakPoint1 } from "../ViewConfigurations";
 
-
+const TitleStyle = css`
+  all: unset;
+  color: var(--title-color);
+  font-family: var(--header-font-family);
+  font-size: 20px;
+  font-weight: 500;
+  @media print {
+    color: black;
+  }
+`;
 
 const Title = styled.p`
   all: unset;
@@ -10,7 +19,9 @@ const Title = styled.p`
   font-family: var(--header-font-family);
   font-size: 20px;
   font-weight: 500;
-
+  @media print {
+    color: black;
+  }
 `;
 
 const Main = styled(Title)`
@@ -18,7 +29,8 @@ const Main = styled(Title)`
   text-indent: 20px;
   font-size: 32px;
   font-weight: 800;
-  ${isMobile && `
+  ${isMobile &&
+  `
     order: 2;
     font-size: 18px;
     padding: 5px 0;
@@ -38,7 +50,8 @@ const Subtitle = styled(Title)`
   color: black;
   text-indent: 20px;
   margin-bottom: 20px;
-  ${isMobile && `
+  ${isMobile &&
+  `
     order: 3;
     font-size: 14px;
     padding: 0;
@@ -52,23 +65,44 @@ const Subtitle = styled(Title)`
   }
 `;
 
-const Technologies = styled(Title)`
+const Experience = styled(Title)`
+ ${TitleStyle}
   font-size: 24px;
   text-indent: 20px;
   margin: 20px 0;
-  ${isMobile && `
+  ${isMobile &&
+  `
     font-size: 16px;
     `}
   @media print {
     font-size: 16px;
     color: black;
     margin: 10px 0;
+  }`;
+
+const Technologies = styled.p`
+  ${TitleStyle}
+  font-size: 24px;
+  text-indent: 20px;
+  margin: 20px 0;
+  ${isMobile &&
+  `
+    font-size: 16px;
+    `}
+  @media print {
+    font-size: 16px;
+    color: black;
+    margin: 10px 0;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    max-width: 200px;
+    text-align: start;
+    text-indent: 0;
   }
 `;
-const Experience = styled(Title)``;
 
 export default ({ title = "Title", sectionType, children }) => {
-
   const titleComp = children ? children : title;
 
   const componentPicker = {
@@ -76,8 +110,10 @@ export default ({ title = "Title", sectionType, children }) => {
     subtitle: () => <Subtitle>{titleComp}</Subtitle>,
     technologies: () => <Technologies>{titleComp}</Technologies>,
     experience: () => <Experience>{titleComp}</Experience>,
-    default: () => <Title>{titleComp}</Title>
+    default: () => <Title>{titleComp}</Title>,
   };
 
-  return componentPicker[sectionType] ? componentPicker[sectionType]() : componentPicker.default();
+  return componentPicker[sectionType]
+    ? componentPicker[sectionType]()
+    : componentPicker.default();
 };

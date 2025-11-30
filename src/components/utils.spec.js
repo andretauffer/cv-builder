@@ -1,5 +1,5 @@
 import { describe, it } from "vitest";
-import { parseDate, parseDescription, filterTechnologies, parseFilterTerms } from "./utils";
+import { parseDate, parseDescription, filterTechnologies } from "./utils";
 
 describe("the parseDate function", () => {
 	it("should correctly parse string into format to display", () => {
@@ -97,21 +97,6 @@ describe("the filterTechnologies function", () => {
 		expect(filtered).toEqual([
 			technologies[0],
 			technologies[1]
-		]);
-	});
-});
-
-describe("the parseFilterTerms function", () => {
-	it("should split filter string in commas and remove spaces", () => {
-		const filter = "some, filter, with spaces, between words";
-
-		const parsed = parseFilterTerms({ filter });
-
-		expect(parsed).toEqual([
-			"some",
-			"filter",
-			"with spaces",
-			"between words"
 		]);
 	});
 });

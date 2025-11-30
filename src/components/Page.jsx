@@ -25,6 +25,7 @@ const Page = styled.div`
   @media print {
     width: 100%;
     padding: 0;
+    gap: 0px;
   }
 `;
 

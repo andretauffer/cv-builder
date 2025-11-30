@@ -9,35 +9,9 @@ const BlockContainer = styled.div`
   margin: 0 20px;
   @media print {
     margin: 0;
+    padding: 0;
+    max-width: 65vw;
   }
-
-`;
-const ExperienceContainerBorder = styled.div`
-  position: absolute;
-  top: -5px;
-  bottom: -5px;
-  left: -5px;
-  right: -5px;
-  z-index: 0;
-  border-radius: 25px;
-  transition: 1s ease all;
-  ${props => props.selected ? `
-    // animation: AnimationName 5s linear infinite;
-    // background: radial-gradient(circle, var(--border-animation-color), transparent, transparent, transparent, transparent, transparent);
-    // background-size: 200% 200%;
-    background-color: var(--border-animation-color);
-    `: `
-    background-color: transparent;
-  `}
-  @keyframes AnimationName {
-    0%{background-position:100% 100%}
-    25%{background-position:0% 100% }
-    50%{background-position:0% 0%}
-    75%{background-position:100% 0%}
-    100%{background-position:100% 100%}
-}
-
-
 
 `;
 
@@ -52,7 +26,6 @@ const ExperienceContent = styled.div`
   border-radius: 20px;
   margin-top: 20px;
   padding: 20px;
-  z-index: 1;
   position: relative;
 
   ${props => props.selected && `
@@ -64,6 +37,10 @@ const ExperienceContent = styled.div`
 
   @media print {
     margin-top: 5px;
+    border: 1px solid grey;
+    break-inside: avoid;
+    background-color: white;
+
   }
 
 `;
@@ -200,4 +177,3 @@ export default ({ experiences, path }) => {
 
   </BlockContainer >
 };
-// added a comment 

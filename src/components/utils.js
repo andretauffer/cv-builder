@@ -19,13 +19,10 @@ export const parseDescription = ({ description }) => description
 	.filter(e => !!e)
 	.map(string => !string.endsWith(".") ? string + ". " : string);
 
-export const parseFilterTerms = ({ filter }) => filter.split(/,/g).filter(e => !!e.trim()).map(term => term.trim());
 
-export const filterTechnologies = ({ technologies, filter, keywords }) => {
+export const filterTechnologies = ({ technologies, keywords }) => {
 
 	let filterTerms = [];
-
-	if (filter) filterTerms = parseFilterTerms({ filter });
 
 	if (keywords && keywords.length) filterTerms = [...filterTerms, ...keywords];
 

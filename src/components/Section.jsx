@@ -7,9 +7,7 @@ const Section = styled.section`
   position: relative;
   flex-flow: column nowrap;
   box-shadow: -3px 3px 10px 0px #0000002e;
-  /* margin: 10px 0; */
   margin: 10px;
-  /* background-color: var(--lavender-blush); */
 
   ${props => props.stick && `
     position: -webkit-sticky;
@@ -20,21 +18,20 @@ const Section = styled.section`
   `}
   ${props => props.sectionType === "projects" && `
       box-shadow: none;
-      // margin-top: 30vh;
       @media print {
         display: none;
       }
-  `}
+      `}
   @media print {
-    width: 100vw;
+    width: 95vw;
     box-shadow: none;
-    margin: 0 auto;
-    padding: 20px;
-    ${props => props.sectionType === "technologies" && `
-      // width: 300px;
-      padding-top: 0;
-    `}
-    /* border-top: 5px solid var(--light-sky-blue); */
+    margin: 0;
+    padding: 0 20px;
+    margin: 0;
+      ${props => props.sectionType === "intro" && `
+          width: 100vw;
+            `
+          }
   }
 `;
 

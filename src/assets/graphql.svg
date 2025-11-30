@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="fill:color(display-p3 .8824 0 .5961)" viewBox="0 0 100 100" class="nextra-logo h-6" title="GraphQL"  x="0px" y="0px">
+  <path fill-rule="evenodd" d="m50 6.468 37.7 21.766v43.532L50 93.532 12.3 71.766V28.234zM16.53 30.676v31.976l27.692-47.964zM50 13.14 18.078 68.43h63.844zm27.692 59.52H22.308L50 88.648zm5.778-10.008L55.778 14.688 83.47 30.676z" clip-rule="evenodd"></path>
+  <circle cx="14.41" cy="29.45" r="8.91"></circle>
+  <circle cx="14.41" cy="70.545" r="8.91"></circle>
+  <circle cx="50" cy="91.09" r="8.91"></circle>
+  <circle cx="85.585" cy="70.545" r="8.91"></circle>
+  <circle cx="85.585" cy="29.455" r="8.91"></circle>
+  <circle cx="50" cy="8.91" r="8.91"></circle>
+</svg>
